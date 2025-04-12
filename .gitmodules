@@ -1,0 +1,3 @@
+[submodule "web_agent/web-explorer"]
+	path = web_agent/web-explorer
+	url = https://github.com/ApGa/web-explorer.git
