@@ -35,13 +35,29 @@ class GSM8KSymbolicTask(YevalTask):
     test_split="test"
     evaluation={"accuracy": lambda x, y: x == y}
 
-@register_task("gsm_symbolic_generate_paraphrase")
-class GSM8KParaphraseTask(GSM8KSymbolicTask):
+@register_task("gsm_symbolic_generate_paraphrase_1")
+class GSM8KParaphraseGenerate1(GSM8KSymbolicTask):
     system_message="""You are a helpful paraphrasing model. \
-Write a paraphrase of the question. \
+Paraphrase or reformat the question in a way that makes it easier to answer. \
 DO NOT provide the answer.\
 """
-    sampling_args={"n": 10, "stop": ["Answer:"]}
+    sampling_args={"n": 10, "stop": ["Answer:"], "temperature": 1.0}
+    
+@register_task("gsm_symbolic_generate_paraphrase_2")
+class GSM8KParaphraseGenerate2(GSM8KSymbolicTask):
+    system_message="""You are a helpful rewriting model. \
+Rewrite the question to make it easier to answer correctly. This rewrite can be a paraphrase or a formatting change. \
+DO NOT provide the answer.\
+"""
+    sampling_args={"n": 10, "stop": ["Answer:"], "temperature": 1.0}
+    
+@register_task("gsm_symbolic_generate_paraphrase_3")
+class GSM8KParaphraseGenerate3(GSM8KSymbolicTask):
+    system_message="""You are a helpful reformatting model. \
+Format the question in a way that makes it easiest to answer correctly. Only include the necessary information to answer the question correctly. \
+DO NOT provide the answer.\
+"""
+    sampling_args={"n": 10, "stop": ["Answer:"], "temperature": 1.0}
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
