@@ -23,4 +23,5 @@ yeval \
     --run_name $MODEL-$TASK \
     --trust_remote_code \
     --api_base $API_BASE \
-    --output_path ./ $OTHER_ARGS
+    $OTHER_ARGS
+    # --output_path ./ 
