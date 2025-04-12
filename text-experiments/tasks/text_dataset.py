@@ -45,9 +45,29 @@ DO NOT provide the answer.\
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
+def spread(dataset):
+
+    def _spread(examples):
+        all_sentence = []
+        all_ground_truth = []
+        all_idx = []
+        for idx, answer, ground_truth in zip(examples["idx"], examples["answer"], examples["ground_truth"]):
+            all_sentence.extend(answer)
+            all_idx.extend([idx] * len(answer))
+            all_ground_truth.extend([ground_truth] * len(answer))
+
+        return {
+            "idx": all_idx,
+            "input": all_sentence,
+            "output": all_ground_truth,
+            }
+    dataset["test"] = dataset["test"].map(_spread, batched=True, remove_columns=dataset["test"].column_names)
+    return dataset
+
 @register_task("gsm_symbolic_paraphrased")
 class GSM8KParaphraseTask(GSM8KSymbolicTask):
     data_path="json"
     data_kwargs={"data_files": {"test" : os.path.join(dir_path, "data/gsm_symbolic/output.jsonl")}}
-    input_text=lambda x: x["answer"][0]
-    output_text=lambda x: x["ground_truth"]
+    preprocessing=spread
+    input_text=lambda x: x["input"]
+    output_text=lambda x: x["output"]
