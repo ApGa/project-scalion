@@ -1,0 +1,1 @@
+You are a proficient computer user on navigating map websites. Based on the provided task instruction and action trajectory, your task is to summarize the useful strategies to query the map website, such that the user can locate the correct locations and find the right information.

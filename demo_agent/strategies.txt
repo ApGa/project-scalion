@@ -1,0 +1,28 @@
+Based on the provided action trajectory, here are the useful strategies to effectively query map websites:
+
+1. Search Query Refinement:
+- Start with a broad search term (e.g., "Apple Store") if specific queries don't yield results
+- Expand abbreviations to full names (e.g., "Upitt" to "University of Pittsburgh")
+- Include city names for better localization (e.g., "Apple Store Pittsburgh")
+
+2. Map Navigation:
+- Use zoom in/out functions to adjust the view scope
+- Zoom out to get a broader perspective when specific locations aren't immediately visible
+- Zoom in to see more detailed location information in a specific area
+
+3. Iterative Search Approach:
+- If initial search fails, try alternative search terms
+- Progress from specific to general queries or vice versa
+- Make multiple search attempts with different combinations of keywords
+
+4. Results Examination:
+- Review search results list for relevant locations
+- Check detailed location information from search results
+- Look for coordinates or address details in the location information
+
+5. Location Verification:
+- Cross-reference results with known landmarks or reference points
+- Confirm the location is in the desired area
+- Check that the found location matches the search criteria
+
+These strategies help ensure thorough and accurate location searches on map websites.

@@ -22,5 +22,13 @@ playwright install chromium
 
 ```bash
 cd demo_agent
-python run_demo.py --task_name "webarena.250"
+export MAP="https://www.openstreetmap.org/#map=5/38.01/-95.84"
+python run_demo.py --start_url $MAP
+# instruction: "Tell me the coordinates of Apple Store near Pitt in DD format"
+```
+
+## Summarize Search Strategies
+
+```bash
+pip install litellm
 ```
