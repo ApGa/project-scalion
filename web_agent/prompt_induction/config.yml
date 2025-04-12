@@ -1,0 +1,27 @@
+agents:
+  - name: InjectableAgent
+    model_id: neulab/claude-3-7-sonnet-20250219
+    temperature: 1.
+    char_limit: 80000
+
+goals:
+  - Find the distance from Carnegie Mellon University to UPMC.
+
+env_args:
+  task_name: "openended"
+  max_steps: 10000000
+  headless: true
+  viewport:
+    width: 1280
+    height: 1440
+  task_kwargs:
+    start_url: https://www.openstreetmap.org/#map=5/38.01/-95.84
+
+evaluator:
+  model_name: neulab/gpt-4o-2024-05-13
+
+exp_dir: ./results
+
+max_steps: 10
+num_rollouts_per_agent: 2
+num_iterations: 3
