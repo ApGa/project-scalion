@@ -1,0 +1,28 @@
+Based on the action trajectory, here are the key strategies for effectively querying map websites to find locations and directions:
+
+1. Use the Appropriate Search Function:
+- For simple location searches, use the main search bar
+- For getting directions between two points, use the dedicated "Find directions" functionality
+
+2. Input Location Details:
+- Use complete, formal names instead of abbreviations (e.g., "University of Pittsburgh" instead of "Upitt")
+- Include specific street names when available (e.g., "Starbucks Craig Street")
+- Add city names if searching in a specific area
+
+3. Configure Transportation Settings:
+- Select the appropriate transportation mode (Car, Bicycle, Foot) based on your needs
+- Click on the label/icon rather than the radio button itself for better interaction
+- Make sure to set this before calculating the route
+
+4. Search Refinement:
+- Start with specific searches first
+- If no results are found, broaden the search terms
+- Add more location context if initial search is unsuccessful
+
+5. Navigation Tips:
+- Use the "Go" button after entering search terms
+- Wait for the route to be calculated
+- Look for key information in the results like distance and time
+- Zoom in/out on the map as needed to better view locations
+
+These strategies help ensure accurate and efficient location finding and route planning on map websites.

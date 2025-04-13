@@ -21,11 +21,12 @@ class InjectablePromptBuilder(SolverPromptBuilder):
 
 
     def snippets_message(self) -> str:
+        text = '\n'.join(self.snippets)
         return {
             "type": "text",
             "text": (
                 "# Here are some suggestions that may be helpful for you based on past experiences of interacting with this website:\n"
-                f"{"\n".join(self.snippets)}\n"
+                f"{text}\n"
             )  
         }
     

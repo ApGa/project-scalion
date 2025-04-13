@@ -5,7 +5,7 @@ agents:
     char_limit: 80000
 
 goals:
-  - Find the distance from Carnegie Mellon University to UPMC.
+  - How long does it take to walk from Univ of Pittsburgh to starbucks on Craig Street?
 
 env_args:
   task_name: "openended"
@@ -21,7 +21,8 @@ evaluator:
   model_name: neulab/gpt-4o-2024-05-13
 
 exp_dir: ./results
+memory_path: ./memory.txt
 
 max_steps: 10
-num_rollouts_per_agent: 2
-num_iterations: 3
+num_rollouts_per_agent: 1
+num_iterations: 2

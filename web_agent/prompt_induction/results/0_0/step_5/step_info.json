@@ -1,0 +1,935 @@
+{
+    "action": "{\"thought\": \"Now I need to click the 'Go' button to calculate the walking directions from University of Pittsburgh to Starbucks on Craig Street. Looking at the accessibility tree, I can see the 'Go' button with BID 178.\", \"action\": \"click('178')\"}",
+    "parsed_action": "click('178')",
+    "thought": "Now I need to click the 'Go' button to calculate the walking directions from University of Pittsburgh to Starbucks on Craig Street. Looking at the accessibility tree, I can see the 'Go' button with BID 178.",
+    "observation": {
+        "last_action": "{\"thought\": \"I received a timeout error when trying to click on the radio button for 'Foot' (BID 171). This is because the radio button itself is not directly clickable; it's covered by a label element. Looking at the accessibility tree, I see that there is a LabelText 'Foot' with BID 172, which is associated with the radio button. I should click on this label instead to select the walking mode.\\n\\nThe label for 'Foot' has BID 172, so I'll click on that to set the travel mode to walking.\", \"action\": \"click('172')\"}",
+        "last_action_error": "",
+        "axtree_txt": "RootWebArea 'OpenStreetMap', focused, url='https://www.openstreetmap.org/directions#map=5/38.01/-95.84'\n\t[49] banner ''\n\t\t[50] heading 'OpenStreetMap logo OpenStreetMap'\n\t\t\t[51] link 'OpenStreetMap logo OpenStreetMap', url='https://www.openstreetmap.org/#map=5/38.01/-95.84'\n\t\t\t\t[52] image 'OpenStreetMap logo', url='https://www.openstreetmap.org/assets/osm_logo-4b074077c29e100f40ee64f5177886e36b570d4cc3ab10c7b263003d09642e3f.svg'\n\t\t[54] navigation ''\n\t\t\t[103] link 'Edit', url='https://www.openstreetmap.org/edit#map=5/38.01/-95.84'\n\t\t\t[104] button ''\n\t\t[110] navigation ''\n\t\t\t[111] list ''\n\t\t\t\t[112] listitem ''\n\t\t\t\t\t[113] link 'History', url='https://www.openstreetmap.org/history'\n\t\t\t\t[114] listitem ''\n\t\t\t\t\t[115] link 'Export', url='https://www.openstreetmap.org/export'\n\t\t\t\t[116] listitem ''\n\t\t\t\t\t[117] link 'GPS Traces', url='https://www.openstreetmap.org/traces'\n\t\t\t\t[118] listitem ''\n\t\t\t\t\t[119] link 'User Diaries', url='https://www.openstreetmap.org/diary'\n\t\t\t\t[120] listitem ''\n\t\t\t\t\t[121] link 'Communities', url='https://www.openstreetmap.org/communities'\n\t\t\t\t[122] listitem ''\n\t\t\t\t\t[123] link 'Copyright', url='https://www.openstreetmap.org/copyright'\n\t\t\t\t[124] listitem ''\n\t\t\t\t\t[125] link 'Help', url='https://www.openstreetmap.org/help'\n\t\t\t\t[126] listitem ''\n\t\t\t\t\t[127] link 'About', url='https://www.openstreetmap.org/about'\n\t\t\t[132] link 'Log In', url='https://www.openstreetmap.org/login?referer=%2F#map=5/38.01/-95.84'\n\t\t\t[133] link 'Sign Up', url='https://www.openstreetmap.org/user/new'\n\t[149] button 'Close'\n\t[155] image '', url='https://www.openstreetmap.org/assets/marker-green-2de0354ac458a358b9925a8b7f5746324122ff884605073e1ee602fe8006e060.png'\n\t[156] textbox 'From' value='University of Pittsburgh, 4200, Fifth Avenue, Fifth & Forbes, Downtown, Pittsburgh, Allegheny County, Pennsylvania, 15260, United States'\n\t\tStaticText 'University of Pittsburgh, 4200, Fifth Avenue, Fifth & Forbes, Downtown, Pittsburgh, Allegheny County, Pennsylvania, 15260, United States'\n\t[159] image '', url='https://www.openstreetmap.org/assets/marker-red-ea1f472cd753fdbe59b263a7dc4886006415079498be4d13a18c12ed33ac5b26.png'\n\t[160] textbox 'To' value='Starbucks on Craig Street, Pittsburgh'\n\t\tStaticText 'Starbucks on Craig Street, Pittsburgh'\n\t[161] button 'Reverse Directions'\n\t\t[162] image ''\n\t[164] group ''\n\t\t[165] radio '', checked='false'\n\t\t[166] LabelText 'Car'\n\t\t\t[167] image ''\n\t\t[168] radio '', checked='false'\n\t\t[169] LabelText 'Bicycle'\n\t\t\t[170] image ''\n\t\t[171] radio '', checked='true'\n\t\t[172] LabelText 'Foot'\n\t\t\t[173] image ''\n\t[174] combobox '' value='OSRM', hasPopup='menu', expanded=False\n\t\t[175] option 'GraphHopper', selected=False\n\t\t[176] option 'OSRM', selected=True\n\t\t[177] option 'Valhalla', selected=False\n\t[178] button 'Go'\n\t[198] button 'Close'\n\t[199] heading 'Welcome to OpenStreetMap!'\n\t[200] paragraph ''\n\t\tStaticText 'OpenStreetMap is a map of the world, created by people like you and free to use under an open license.'\n\t[201] paragraph ''\n\t\tStaticText 'Hosting is supported by'\n\t\t[202] link 'Fastly', url='https://www.fastly.com/'\n\t\tStaticText ','\n\t\t[203] link 'OSMF corporate members', url='https://osmfoundation.org/wiki/Corporate_Members'\n\t\tStaticText ', and other'\n\t\t[204] link 'partners', url='https://hardware.openstreetmap.org/thanks/'\n\t\tStaticText '.'\n\t[206] link 'Learn More', url='https://www.openstreetmap.org/about'\n\t[207] link 'Start Mapping', url='https://www.openstreetmap.org/user/new'\n\t[422] image '', url='https://tile.openstreetmap.org/5/6/12.png'\n\t[423] image '', url='https://tile.openstreetmap.org/5/7/12.png'\n\t[424] image '', url='https://tile.openstreetmap.org/5/6/11.png'\n\t[425] image '', url='https://tile.openstreetmap.org/5/7/11.png'\n\t[426] image '', url='https://tile.openstreetmap.org/5/6/13.png'\n\t[427] image '', url='https://tile.openstreetmap.org/5/7/13.png'\n\t[428] image '', url='https://tile.openstreetmap.org/5/5/12.png'\n\t[429] image '', url='https://tile.openstreetmap.org/5/8/12.png'\n\t[430] image '', url='https://tile.openstreetmap.org/5/5/11.png'\n\t[431] image '', url='https://tile.openstreetmap.org/5/8/11.png'\n\t[432] image '', url='https://tile.openstreetmap.org/5/5/13.png'\n\t[433] image '', url='https://tile.openstreetmap.org/5/8/13.png'\n\t[434] image '', url='https://tile.openstreetmap.org/5/6/10.png'\n\t[435] image '', url='https://tile.openstreetmap.org/5/7/10.png'\n\t[436] image '', url='https://tile.openstreetmap.org/5/6/14.png'\n\t[437] image '', url='https://tile.openstreetmap.org/5/7/14.png'\n\t[438] image '', url='https://tile.openstreetmap.org/5/5/10.png'\n\t[439] image '', url='https://tile.openstreetmap.org/5/8/10.png'\n\t[440] image '', url='https://tile.openstreetmap.org/5/4/12.png'\n\t[441] image '', url='https://tile.openstreetmap.org/5/9/12.png'\n\t[442] image '', url='https://tile.openstreetmap.org/5/5/14.png'\n\t[443] image '', url='https://tile.openstreetmap.org/5/8/14.png'\n\t[444] image '', url='https://tile.openstreetmap.org/5/4/11.png'\n\t[445] image '', url='https://tile.openstreetmap.org/5/9/11.png'\n\t[446] image '', url='https://tile.openstreetmap.org/5/4/13.png'\n\t[447] image '', url='https://tile.openstreetmap.org/5/9/13.png'\n\t[448] image '', url='https://tile.openstreetmap.org/5/6/9.png'\n\t[449] image '', url='https://tile.openstreetmap.org/5/7/9.png'\n\t[450] image '', url='https://tile.openstreetmap.org/5/6/15.png'\n\t[451] image '', url='https://tile.openstreetmap.org/5/7/15.png'\n\t[452] image '', url='https://tile.openstreetmap.org/5/4/10.png'\n\t[453] image '', url='https://tile.openstreetmap.org/5/9/10.png'\n\t[454] image '', url='https://tile.openstreetmap.org/5/4/14.png'\n\t[455] image '', url='https://tile.openstreetmap.org/5/9/14.png'\n\t[456] image '', url='https://tile.openstreetmap.org/5/5/9.png'\n\t[457] image '', url='https://tile.openstreetmap.org/5/8/9.png'\n\t[458] image '', url='https://tile.openstreetmap.org/5/5/15.png'\n\t[459] image '', url='https://tile.openstreetmap.org/5/8/15.png'\n\t[460] image '', url='https://tile.openstreetmap.org/5/4/9.png'\n\t[461] image '', url='https://tile.openstreetmap.org/5/9/9.png'\n\t[462] image '', url='https://tile.openstreetmap.org/5/4/15.png'\n\t[463] image '', url='https://tile.openstreetmap.org/5/9/15.png'\n\t[524] image '', url='https://tile.openstreetmap.org/5/10/12.png'\n\t[525] image '', url='https://tile.openstreetmap.org/5/10/11.png'\n\t[526] image '', url='https://tile.openstreetmap.org/5/10/13.png'\n\t[527] image '', url='https://tile.openstreetmap.org/5/10/10.png'\n\t[528] image '', url='https://tile.openstreetmap.org/5/11/12.png'\n\t[529] image '', url='https://tile.openstreetmap.org/5/10/14.png'\n\t[530] image '', url='https://tile.openstreetmap.org/5/11/11.png'\n\t[531] image '', url='https://tile.openstreetmap.org/5/11/13.png'\n\t[532] image '', url='https://tile.openstreetmap.org/5/11/10.png'\n\t[533] image '', url='https://tile.openstreetmap.org/5/11/14.png'\n\t[534] image '', url='https://tile.openstreetmap.org/5/10/9.png'\n\t[535] image '', url='https://tile.openstreetmap.org/5/10/15.png'\n\t[536] image '', url='https://tile.openstreetmap.org/5/11/9.png'\n\t[537] image '', url='https://tile.openstreetmap.org/5/11/15.png'\n\t[538] image '', url='https://www.openstreetmap.org/assets/leaflet/dist/images/marker-shadow-a2d94406ba198f61f68a71ed8f9f9c701122c0c33b775d990edceae4aece567f.png'\n\t[539] button 'Marker'\n\t[474] link 'Zoom In', url='https://www.openstreetmap.org/directions#'\n\t[476] link 'Zoom Out', url='https://www.openstreetmap.org/directions#'\n\t[479] button 'Show My Location'\n\t[482] link 'Layers', url='https://www.openstreetmap.org/directions#'\n\t[485] link '', url='https://www.openstreetmap.org/directions#'\n\t[488] link 'Share', url='https://www.openstreetmap.org/directions#'\n\t[491] link '', url='https://www.openstreetmap.org/directions#'\n\t[494] link '', url='https://www.openstreetmap.org/directions#'\n\tStaticText '300 km'\n\tStaticText '200 mi'\n\tStaticText '\u00a9'\n\t[502] link 'OpenStreetMap contributors', url='https://www.openstreetmap.org/copyright'\n\tStaticText '\u2665'\n\t[503] link 'Make a Donation', url='https://supporting.openstreetmap.org/'\n\tStaticText '.'\n\t[504] link 'Website and API terms', url='https://wiki.osmfoundation.org/wiki/Terms_of_Use'",
+        "axtree_visible_only_txt": "RootWebArea 'OpenStreetMap', focused, url='https://www.openstreetmap.org/directions#map=5/38.01/-95.84'\n\t[49] banner ''\n\t\t[50] heading 'OpenStreetMap logo OpenStreetMap'\n\t\t\t[51] link 'OpenStreetMap logo OpenStreetMap', url='https://www.openstreetmap.org/#map=5/38.01/-95.84'\n\t\t\t\t[52] image 'OpenStreetMap logo', url='https://www.openstreetmap.org/assets/osm_logo-4b074077c29e100f40ee64f5177886e36b570d4cc3ab10c7b263003d09642e3f.svg'\n\t\t[54] navigation ''\n\t\t\t[103] link 'Edit', url='https://www.openstreetmap.org/edit#map=5/38.01/-95.84'\n\t\t\t[104] button ''\n\t\t[110] navigation ''\n\t\t\t[111] list ''\n\t\t\t\t[112] listitem ''\n\t\t\t\t\t[113] link 'History', url='https://www.openstreetmap.org/history'\n\t\t\t\t[114] listitem ''\n\t\t\t\t\t[115] link 'Export', url='https://www.openstreetmap.org/export'\n\t\t\t\t[116] listitem ''\n\t\t\t\t\t[117] link 'GPS Traces', url='https://www.openstreetmap.org/traces'\n\t\t\t\t[118] listitem ''\n\t\t\t\t\t[119] link 'User Diaries', url='https://www.openstreetmap.org/diary'\n\t\t\t\t[120] listitem ''\n\t\t\t\t\t[121] link 'Communities', url='https://www.openstreetmap.org/communities'\n\t\t\t\t[122] listitem ''\n\t\t\t\t\t[123] link 'Copyright', url='https://www.openstreetmap.org/copyright'\n\t\t\t\t[124] listitem ''\n\t\t\t\t\t[125] link 'Help', url='https://www.openstreetmap.org/help'\n\t\t\t\t[126] listitem ''\n\t\t\t\t\t[127] link 'About', url='https://www.openstreetmap.org/about'\n\t\t\t[132] link 'Log In', url='https://www.openstreetmap.org/login?referer=%2F#map=5/38.01/-95.84'\n\t\t\t[133] link 'Sign Up', url='https://www.openstreetmap.org/user/new'\n\t[149] button 'Close'\n\t[155] image '', url='https://www.openstreetmap.org/assets/marker-green-2de0354ac458a358b9925a8b7f5746324122ff884605073e1ee602fe8006e060.png'\n\t[156] textbox 'From' value='University of Pittsburgh, 4200, Fifth Avenue, Fifth & Forbes, Downtown, Pittsburgh, Allegheny County, Pennsylvania, 15260, United States'\n\t\tStaticText 'University of Pittsburgh, 4200, Fifth Avenue, Fifth & Forbes, Downtown, Pittsburgh, Allegheny County, Pennsylvania, 15260, United States'\n\t[159] image '', url='https://www.openstreetmap.org/assets/marker-red-ea1f472cd753fdbe59b263a7dc4886006415079498be4d13a18c12ed33ac5b26.png'\n\t[160] textbox 'To' value='Starbucks on Craig Street, Pittsburgh'\n\t\tStaticText 'Starbucks on Craig Street, Pittsburgh'\n\t[161] button 'Reverse Directions'\n\t\t[162] image ''\n\t[164] group ''\n\t\t[166] LabelText 'Car'\n\t\t\t[167] image ''\n\t\t[169] LabelText 'Bicycle'\n\t\t\t[170] image ''\n\t\t[172] LabelText 'Foot'\n\t\t\t[173] image ''\n\t[174] combobox '' value='OSRM', hasPopup='menu', expanded=False\n\t[178] button 'Go'\n\t[198] button 'Close'\n\t[199] heading 'Welcome to OpenStreetMap!'\n\t[200] paragraph ''\n\t\tStaticText 'OpenStreetMap is a map of the world, created by people like you and free to use under an open license.'\n\t[201] paragraph ''\n\t\tStaticText 'Hosting is supported by'\n\t\t[202] link 'Fastly', url='https://www.fastly.com/'\n\t\tStaticText ','\n\t\t[203] link 'OSMF corporate members', url='https://osmfoundation.org/wiki/Corporate_Members'\n\t\tStaticText ', and other'\n\t\t[204] link 'partners', url='https://hardware.openstreetmap.org/thanks/'\n\t\tStaticText '.'\n\t[206] link 'Learn More', url='https://www.openstreetmap.org/about'\n\t[207] link 'Start Mapping', url='https://www.openstreetmap.org/user/new'\n\t[422] image '', url='https://tile.openstreetmap.org/5/6/12.png'\n\t[423] image '', url='https://tile.openstreetmap.org/5/7/12.png'\n\t[424] image '', url='https://tile.openstreetmap.org/5/6/11.png'\n\t[425] image '', url='https://tile.openstreetmap.org/5/7/11.png'\n\t[426] image '', url='https://tile.openstreetmap.org/5/6/13.png'\n\t[427] image '', url='https://tile.openstreetmap.org/5/7/13.png'\n\t[428] image '', url='https://tile.openstreetmap.org/5/5/12.png'\n\t[429] image '', url='https://tile.openstreetmap.org/5/8/12.png'\n\t[430] image '', url='https://tile.openstreetmap.org/5/5/11.png'\n\t[431] image '', url='https://tile.openstreetmap.org/5/8/11.png'\n\t[432] image '', url='https://tile.openstreetmap.org/5/5/13.png'\n\t[433] image '', url='https://tile.openstreetmap.org/5/8/13.png'\n\t[434] image '', url='https://tile.openstreetmap.org/5/6/10.png'\n\t[435] image '', url='https://tile.openstreetmap.org/5/7/10.png'\n\t[436] image '', url='https://tile.openstreetmap.org/5/6/14.png'\n\t[437] image '', url='https://tile.openstreetmap.org/5/7/14.png'\n\t[438] image '', url='https://tile.openstreetmap.org/5/5/10.png'\n\t[439] image '', url='https://tile.openstreetmap.org/5/8/10.png'\n\t[441] image '', url='https://tile.openstreetmap.org/5/9/12.png'\n\t[442] image '', url='https://tile.openstreetmap.org/5/5/14.png'\n\t[443] image '', url='https://tile.openstreetmap.org/5/8/14.png'\n\t[445] image '', url='https://tile.openstreetmap.org/5/9/11.png'\n\t[447] image '', url='https://tile.openstreetmap.org/5/9/13.png'\n\t[453] image '', url='https://tile.openstreetmap.org/5/9/10.png'\n\t[455] image '', url='https://tile.openstreetmap.org/5/9/14.png'\n\t[538] image '', url='https://www.openstreetmap.org/assets/leaflet/dist/images/marker-shadow-a2d94406ba198f61f68a71ed8f9f9c701122c0c33b775d990edceae4aece567f.png'\n\t[539] button 'Marker'\n\t[474] link 'Zoom In', url='https://www.openstreetmap.org/directions#'\n\t[476] link 'Zoom Out', url='https://www.openstreetmap.org/directions#'\n\t[479] button 'Show My Location'\n\t[482] link 'Layers', url='https://www.openstreetmap.org/directions#'\n\t[485] link '', url='https://www.openstreetmap.org/directions#'\n\t[488] link 'Share', url='https://www.openstreetmap.org/directions#'\n\t[491] link '', url='https://www.openstreetmap.org/directions#'\n\t[494] link '', url='https://www.openstreetmap.org/directions#'\n\tStaticText '300 km'\n\tStaticText '200 mi'\n\tStaticText '\u00a9'\n\t[502] link 'OpenStreetMap contributors', url='https://www.openstreetmap.org/copyright'\n\tStaticText '\u2665'\n\t[503] link 'Make a Donation', url='https://supporting.openstreetmap.org/'\n\tStaticText '.'\n\t[504] link 'Website and API terms', url='https://wiki.osmfoundation.org/wiki/Terms_of_Use'",
+        "pruned_html": "<head bid=\"1\" data-locale=\"en\" data-location=\"{\" data-preferred-editor=\"id\" data-preferred-languages=\"[]\" minlon=\"\">\n <meta bid=\"3\" content=\"IE=edge\" http-equiv=\"X-UA-Compatible\"/>\n <meta bid=\"4\" content=\"width=device-width, initial-scale=1\" name=\"viewport\"/>\n <meta bid=\"21\" content=\"/assets/browserconfig-c59184dc0264731151cbf50ae58f7fa8ae5153138013f125203e1193800f862f.xml\" name=\"msapplication-config\"/>\n <meta bid=\"22\" content=\"#00a300\" name=\"msapplication-TileColor\"/>\n <meta bid=\"23\" content=\"/assets/mstile-144x144-02723f6f7cb2c18e6f8041c93f80982decb52b24a7e447477bc2ce3136d75806.png\" name=\"msapplication-TileImage\"/>\n <meta bid=\"24\" content=\"#ffffff\" name=\"theme-color\"/>\n <meta bid=\"25\" content=\"morph\" name=\"turbo-refresh-method\"/>\n <meta bid=\"26\" content=\"preserve\" name=\"turbo-refresh-scroll\"/>\n <meta bid=\"29\" content=\"OpenStreetMap is the free wiki world map.\" name=\"description\"/>\n <meta bid=\"30\" content=\"OpenStreetMap\" property=\"og:site_name\"/>\n <meta bid=\"31\" content=\"OpenStreetMap\" property=\"og:title\"/>\n <meta bid=\"32\" content=\"website\" property=\"og:type\"/>\n <meta bid=\"33\" content=\"https://www.openstreetmap.org/\" property=\"og:url\"/>\n <meta bid=\"34\" content=\"OpenStreetMap is a map of the world, created by people like you and free to use under an open license.\" property=\"og:description\"/>\n <meta bid=\"35\" content=\"https://www.openstreetmap.org/assets/osm_logo_256-ed028f90468224a272961c380ecee0cfb73b8048b34f4b4b204b7f0d1097875d.png\" property=\"og:image\"/>\n <meta bid=\"36\" content=\"OpenStreetMap logo\" property=\"og:image:alt\"/>\n <meta bid=\"44\" content=\"authenticity_token\" name=\"csrf-param\"/>\n <meta bid=\"45\" content=\"6hNWW7Ds1YzQNP3gYCqNf33WvSPj4aD8gq3tDycLMvEJN6xoWu43BFMynATGdHwqILi9JEqmNTXfQFDWn0RU2w\" name=\"csrf-token\"/>\n <meta bid=\"46\" content=\"S4O4XPr66K7CNMbADxhn8iMcLIARdhMH\" name=\"csp-nonce\"/>\n <title bid=\"47\">\n  OpenStreetMap\n </title>\n</head>\n<header bid=\"49\" class=\"d-flex bg-body text-nowrap closed z-3\">\n <h1 bid=\"50\" class=\"d-flex m-0 fw-semibold\">\n  <a bid=\"51\" class=\"icon-link gap-1 text-body-emphasis text-decoration-none geolink\" href=\"https://www.openstreetmap.org/#map=5/38.01/-95.84\">\n   <img alt=\"OpenStreetMap logo\" bid=\"52\" height=\"30\" src=\"/assets/osm_logo-4b074077c29e100f40ee64f5177886e36b570d4cc3ab10c7b263003d09642e3f.svg\" width=\"30\"/>\n   OpenStreetMap\n  </a>\n </h1>\n <a bid=\"53\" href=\"#\" id=\"menu-icon\">\n </a>\n <nav bid=\"54\" class=\"primary\">\n  <div bid=\"55\" class=\"search_forms\">\n   <form action=\"/search\" bid=\"56\" class=\"search_form bg-body-secondary p-2\" method=\"GET\" style=\"display: none;\">\n    <div bid=\"57\" class=\"d-flex gap-2\">\n     <div bid=\"58\" class=\"input-group flex-nowrap\">\n      <input autocomplete=\"on\" bid=\"59\" class=\"form-control z-0 py-1 px-2\" dir=\"auto\" id=\"query\" name=\"query\" placeholder=\"Search\" type=\"text\" value=\"\"/>\n      <div bid=\"60\" class=\"input-group-text border-start-0 p-0 position-relative\">\n       <button bid=\"61\" class=\"describe_location position-absolute end-0 m-1 btn btn-outline-primary border-0 p-1 text-primary link-body-emphasis link-opacity-100-hover\" name=\"button\" title=\"Describe the current location using the search engine\" type=\"button\" value=\"\">\n        Where is this?\n       </button>\n      </div>\n      <button bid=\"62\" class=\"btn btn-primary p-1\" name=\"button\" title=\"Go\" type=\"submit\" value=\"\">\n       <svg bid=\"63\" height=\"20\" width=\"24\">\n        <circle cx=\"13\" cy=\"7\" fill=\"#fff8\" r=\"6.5\" stroke=\"#fff\">\n        </circle>\n        <path d=\"M9.75 12.629 A6.5 6.5 0 0 1 7.371 10.25\" fill=\"none\" stroke=\"#fff\" stroke-width=\"1.5\">\n        </path>\n        <line stroke=\"#fff8\" stroke-width=\"2\" x1=\"1\" x2=\"1.5\" y1=\"19\" y2=\"18.5\">\n        </line>\n        <line stroke=\"#fff\" stroke-width=\"2.5\" x1=\"1.5\" x2=\"6\" y1=\"18.5\" y2=\"14\">\n        </line>\n        <line stroke=\"#fff8\" stroke-width=\"2\" x1=\"6\" x2=\"6.5\" y1=\"14\" y2=\"13.5\">\n        </line>\n        <line stroke=\"#fff\" stroke-width=\"1.5\" x1=\"6.5\" x2=\"8.5\" y1=\"13.5\" y2=\"11.5\">\n        </line>\n       </svg>\n      </button>\n     </div>\n     <a bid=\"64\" class=\"btn btn-primary p-1 switch_link\" href=\"/directions\" title=\"Find directions between two points\">\n      <svg bid=\"65\" class=\"align-bottom\" height=\"24\" width=\"28\">\n       <path d=\"M11.5 11.5v-3h3v-1l-5-5-5 5v1h3v6\" fill=\"none\" stroke=\"#fff8\">\n       </path>\n       <path d=\"M7.5 21.5h4v-5a1 1 0 0 1 1-1h5v3h1l5-5-5-5h-1v3h-6a4 4 0 0 0-4 4z\" fill=\"#fff8\" stroke=\"#fff\">\n       </path>\n      </svg>\n     </a>\n    </div>\n   </form>\n   <form action=\"/directions\" bid=\"66\" class=\"directions_form bg-body-secondary p-2\" method=\"GET\" style=\"display: block;\">\n    <div bid=\"67\" class=\"d-flex flex-row-reverse pb-3\">\n     <button aria-label=\"Close\" bid=\"68\" class=\"btn-close position-absolute p-2 rounded-5\" type=\"button\" value=\"\">\n     </button>\n    </div>\n    <div bid=\"69\" class=\"d-flex flex-column gap-2\">\n     <div bid=\"70\" class=\"d-flex gap-1 align-items-center\">\n      <div bid=\"71\" class=\"d-flex flex-column gap-1 flex-grow-1\">\n       <div bid=\"72\" class=\"d-flex gap-2 align-items-center\">\n        <div bid=\"73\" class=\"routing_marker_column position-absolute\">\n         <img bid=\"74\" class=\"img-fluid\" data-type=\"from\" draggable=\"true\" src=\"/assets/marker-green-2de0354ac458a358b9925a8b7f5746324122ff884605073e1ee602fe8006e060.png\"/>\n        </div>\n        <input autocomplete=\"on\" bid=\"75\" class=\"form-control py-1 px-2 ps-4\" data-lat=\"40.44415295\" data-lon=\"-79.96246095144505\" dir=\"auto\" id=\"route_from\" name=\"route_from\" placeholder=\"From\" type=\"text\" value=\"University of Pittsburgh, 4200, Fifth Avenue, Fifth &amp; Forbes, Downtown, Pittsburgh, Allegheny County, Pennsylvania, 15260, United States\"/>\n       </div>\n       <div bid=\"76\" class=\"d-flex gap-2 align-items-center\">\n        <div bid=\"77\" class=\"routing_marker_column position-absolute\">\n         <img bid=\"78\" class=\"img-fluid\" data-type=\"to\" draggable=\"true\" src=\"/assets/marker-red-ea1f472cd753fdbe59b263a7dc4886006415079498be4d13a18c12ed33ac5b26.png\"/>\n        </div>\n        <input autocomplete=\"on\" bid=\"79\" class=\"form-control py-1 px-2 ps-4 is-invalid\" dir=\"auto\" id=\"route_to\" name=\"route_to\" placeholder=\"To\" type=\"text\" value=\"Starbucks on Craig Street, Pittsburgh\"/>\n       </div>\n      </div>\n      <button bid=\"80\" class=\"reverse_directions btn btn-outline-secondary border-0 p-2 me-n1\" title=\"Reverse Directions\" type=\"button\" value=\"\">\n       <svg bid=\"81\" class=\"d-block\" fill=\"none\" height=\"22\" stroke=\"currentColor\" stroke-width=\"2\" viewbox=\"-11 -11 22 22\" width=\"22\">\n        <path d=\"m-4 -2 0 10 m-4 -4 4 4 4 -4\">\n        </path>\n        <path d=\"m4 2 0 -10 m4 4 -4 -4 -4 4\">\n        </path>\n       </svg>\n      </button>\n     </div>\n     <div bid=\"82\" class=\"d-flex gap-2 align-items-center\">\n      <div bid=\"83\" class=\"btn-group routing_modes\" role=\"group\">\n       <input autocomplete=\"off\" bid=\"84\" class=\"btn-check\" id=\"car\" name=\"modes\" type=\"radio\" value=\"on\"/>\n       <label bid=\"85\" class=\"btn btn-outline-secondary px-2\" for=\"car\" title=\"Car\">\n        <svg bid=\"86\" class=\"d-block\" fill=\"currentColor\" height=\"16\" width=\"16\">\n         <path d=\"M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679q.05.242.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.8.8 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17s3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z\">\n         </path>\n        </svg>\n       </label>\n       <input autocomplete=\"off\" bid=\"87\" class=\"btn-check\" id=\"bicycle\" name=\"modes\" type=\"radio\" value=\"on\"/>\n       <label bid=\"88\" class=\"btn btn-outline-secondary px-2\" for=\"bicycle\" title=\"Bicycle\">\n        <svg bid=\"89\" class=\"d-block\" fill=\"currentColor\" height=\"16\" width=\"16\">\n         <path d=\"M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935.807 1.29a3 3 0 1 1-.848.53l-.508-.812-2.076 3.322A.5.5 0 0 1 8 10.5H5.959a3 3 0 1 1-1.815-3.274L5 5.856V5h-.5a.5.5 0 0 1-.5-.5m1.5 2.443-.508.814c.5.444.85 1.054.967 1.743h1.139zM8 9.057 9.598 6.5H6.402zM4.937 9.5a2 2 0 0 0-.487-.877l-.548.877zM3.603 8.092A2 2 0 1 0 4.937 10.5H3a.5.5 0 0 1-.424-.765zm7.947.53a2 2 0 1 0 .848-.53l1.026 1.643a.5.5 0 1 1-.848.53z\">\n         </path>\n        </svg>\n       </label>\n       <input autocomplete=\"off\" bid=\"90\" checked=\"\" class=\"btn-check\" id=\"foot\" name=\"modes\" type=\"radio\" value=\"on\"/>\n       <label bid=\"91\" class=\"btn btn-outline-secondary px-2\" for=\"foot\" title=\"Foot\">\n        <svg bid=\"92\" class=\"d-block\" fill=\"currentColor\" height=\"16\" width=\"16\">\n         <path d=\"M9.5 1.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0M6.44 3.752A.75.75 0 017 3.5h1.445c.742 0 1.32.643 1.243 1.38l-.43 4.083a1.8 1.8 0 01-.088.395l-.318.906.213.242a.8.8 0 01.114.175l2 4.25a.75.75 0 11-1.357.638l-1.956-4.154-1.68-1.921A.75.75 0 016 8.96l.138-2.613-.435.489-.464 2.786a.75.75 0 11-1.48-.246l.5-3a.75.75 0 01.18-.375l2-2.25zm-.19 7.993v-1.418l1.204 1.375.261.524a.8.8 0 01-.12.231l-2.5 3.25a.75.75 0 11-1.19-.914zm4.22-4.215-.494-.494.205-1.843.006-.067 1.124 1.124h1.44a.75.75 0 010 1.5H11a.75.75 0 01-.531-.22Z\">\n         </path>\n        </svg>\n       </label>\n      </div>\n      <select bid=\"93\" class=\"routing_engines form-select py-1 px-2\" name=\"routing_engines\" value=\"fossgis_osrm\">\n       <option bid=\"94\" value=\"graphhopper\">\n        GraphHopper\n       </option>\n       <option bid=\"95\" value=\"fossgis_osrm\">\n        OSRM\n       </option>\n       <option bid=\"96\" value=\"fossgis_valhalla\">\n        Valhalla\n       </option>\n      </select>\n      <input bid=\"97\" class=\"routing_go btn btn-primary py-1 px-2\" name=\"commit\" type=\"submit\" value=\"Go\"/>\n     </div>\n    </div>\n    <div bid=\"98\" class=\"loader_copy d-none\">\n     <div bid=\"99\" class=\"text-center loader\">\n      <div bid=\"100\" class=\"spinner-border\" role=\"status\">\n       <span bid=\"101\" class=\"visually-hidden\">\n        Loading...\n       </span>\n      </div>\n     </div>\n    </div>\n   </form>\n  </div>\n  <div bid=\"102\" class=\"btn-group disabled\" data-bs-original-title=\"Zoom in to edit the map\" id=\"edit_tab\">\n   <a bid=\"103\" class=\"btn btn-outline-primary geolink editlink disabled\" data-editor=\"id\" href=\"https://www.openstreetmap.org/edit#map=5/38.01/-95.84\" id=\"editanchor\">\n    Edit\n   </a>\n   <button bid=\"104\" class=\"btn btn-outline-primary dropdown-toggle dropdown-toggle-split flex-grow-0\" data-bs-toggle=\"dropdown\" type=\"button\" value=\"\">\n    &lt;::after&gt;\n   </button>\n   <ul bid=\"105\" class=\"dropdown-menu\">\n    <li bid=\"106\" value=\"0\">\n     <a bid=\"107\" class=\"geolink editlink dropdown-item disabled\" data-editor=\"id\" href=\"https://www.openstreetmap.org/edit?editor=id#map=5/38.01/-95.84\">\n      Edit with iD (in-browser editor)\n     </a>\n    </li>\n    <li bid=\"108\" value=\"0\">\n     <a bid=\"109\" class=\"geolink editlink dropdown-item disabled\" data-editor=\"remote\" href=\"https://www.openstreetmap.org/edit?editor=remote#map=5/38.01/-95.84\">\n      Edit with Remote Control (JOSM, Potlatch, Merkaartor)\n     </a>\n    </li>\n   </ul>\n  </div>\n </nav>\n <nav bid=\"110\" class=\"secondary d-flex gap-2 flex-grow-1 align-items-center\">\n  <ul bid=\"111\" class=\"nav flex-grow-1\" data-turbo-permanent=\"\" id=\"secondary-nav-menu\">\n   <li bid=\"112\" class=\"nav-item\" value=\"0\">\n    <a bid=\"113\" class=\"nav-link text-secondary\" href=\"/history\">\n     History\n    </a>\n   </li>\n   <li bid=\"114\" class=\"nav-item\" value=\"0\">\n    <a bid=\"115\" class=\"nav-link text-secondary\" href=\"/export\">\n     Export\n    </a>\n   </li>\n   <li bid=\"116\" class=\"nav-item\" value=\"0\">\n    <a bid=\"117\" class=\"nav-link text-secondary\" href=\"/traces\">\n     GPS Traces\n    </a>\n   </li>\n   <li bid=\"118\" class=\"nav-item\" value=\"0\">\n    <a bid=\"119\" class=\"nav-link text-secondary\" href=\"/diary\">\n     User Diaries\n    </a>\n   </li>\n   <li bid=\"120\" class=\"nav-item\" value=\"0\">\n    <a bid=\"121\" class=\"nav-link text-secondary\" href=\"/communities\">\n     Communities\n    </a>\n   </li>\n   <li bid=\"122\" class=\"nav-item\" value=\"0\">\n    <a bid=\"123\" class=\"nav-link text-secondary\" href=\"/copyright\">\n     Copyright\n    </a>\n   </li>\n   <li bid=\"124\" class=\"nav-item\" value=\"0\">\n    <a bid=\"125\" class=\"nav-link text-secondary\" href=\"/help\">\n     Help\n    </a>\n   </li>\n   <li bid=\"126\" class=\"nav-item\" value=\"0\">\n    <a bid=\"127\" class=\"nav-link text-secondary\" href=\"/about\">\n     About\n    </a>\n   </li>\n   <li bid=\"128\" class=\"dropdown nav-item ms-auto\" id=\"compact-secondary-nav\" style=\"display: none;\" value=\"0\">\n    <button bid=\"129\" class=\"dropdown-toggle nav-link btn btn-outline-secondary border-0 bg-body text-secondary\" data-bs-toggle=\"dropdown\" type=\"button\" value=\"\">\n     More\n    </button>\n    <ul bid=\"130\" class=\"dropdown-menu\">\n    </ul>\n   </li>\n  </ul>\n  <div bid=\"131\" class=\"d-inline-flex btn-group login-menu\" role=\"\">\n   <a bid=\"132\" class=\"geolink btn btn-outline-secondary\" href=\"https://www.openstreetmap.org/login?referer=%2F#map=5/38.01/-95.84\">\n    Log In\n   </a>\n   <a bid=\"133\" class=\"btn btn-outline-secondary\" href=\"/user/new\">\n    Sign Up\n   </a>\n  </div>\n </nav>\n</header>\n<div bid=\"134\" class=\"overlay-right-sidebar overlay-sidebar\" id=\"content\">\n <div bid=\"135\" class=\"bg-body z-1\" id=\"sidebar\">\n  <div bid=\"136\" class=\"search_forms\">\n   <form action=\"/search\" bid=\"137\" class=\"search_form bg-body-secondary p-2\" method=\"GET\" style=\"display: none;\">\n    <div bid=\"138\" class=\"d-flex gap-2\">\n     <div bid=\"139\" class=\"input-group flex-nowrap\">\n      <input autocomplete=\"on\" autofocus=\"autofocus\" bid=\"140\" class=\"form-control z-0 py-1 px-2\" dir=\"auto\" id=\"query\" name=\"query\" placeholder=\"Search\" type=\"text\" value=\"\"/>\n      <div bid=\"141\" class=\"input-group-text border-start-0 p-0 position-relative\">\n       <button bid=\"142\" class=\"describe_location position-absolute end-0 m-1 btn btn-outline-primary border-0 p-1 text-primary link-body-emphasis link-opacity-100-hover\" name=\"button\" title=\"Describe the current location using the search engine\" type=\"button\" value=\"\">\n        Where is this?\n       </button>\n      </div>\n      <button bid=\"143\" class=\"btn btn-primary p-1\" name=\"button\" title=\"Go\" type=\"submit\" value=\"\">\n       <svg bid=\"144\" height=\"20\" width=\"24\">\n        <circle cx=\"13\" cy=\"7\" fill=\"#fff8\" r=\"6.5\" stroke=\"#fff\">\n        </circle>\n        <path d=\"M9.75 12.629 A6.5 6.5 0 0 1 7.371 10.25\" fill=\"none\" stroke=\"#fff\" stroke-width=\"1.5\">\n        </path>\n        <line stroke=\"#fff8\" stroke-width=\"2\" x1=\"1\" x2=\"1.5\" y1=\"19\" y2=\"18.5\">\n        </line>\n        <line stroke=\"#fff\" stroke-width=\"2.5\" x1=\"1.5\" x2=\"6\" y1=\"18.5\" y2=\"14\">\n        </line>\n        <line stroke=\"#fff8\" stroke-width=\"2\" x1=\"6\" x2=\"6.5\" y1=\"14\" y2=\"13.5\">\n        </line>\n        <line stroke=\"#fff\" stroke-width=\"1.5\" x1=\"6.5\" x2=\"8.5\" y1=\"13.5\" y2=\"11.5\">\n        </line>\n       </svg>\n      </button>\n     </div>\n     <a bid=\"145\" class=\"btn btn-primary p-1 switch_link\" href=\"/directions\" title=\"Find directions between two points\">\n      <svg bid=\"146\" class=\"align-bottom\" height=\"24\" width=\"28\">\n       <path d=\"M11.5 11.5v-3h3v-1l-5-5-5 5v1h3v6\" fill=\"none\" stroke=\"#fff8\">\n       </path>\n       <path d=\"M7.5 21.5h4v-5a1 1 0 0 1 1-1h5v3h1l5-5-5-5h-1v3h-6a4 4 0 0 0-4 4z\" fill=\"#fff8\" stroke=\"#fff\">\n       </path>\n      </svg>\n     </a>\n    </div>\n   </form>\n   <form action=\"/directions\" bid=\"147\" class=\"directions_form bg-body-secondary p-2\" method=\"GET\" style=\"display: block;\">\n    <div bid=\"148\" class=\"d-flex flex-row-reverse pb-3\">\n     <button aria-label=\"Close\" bid=\"149\" class=\"btn-close position-absolute p-2 rounded-5\" type=\"button\" value=\"\">\n     </button>\n    </div>\n    <div bid=\"150\" class=\"d-flex flex-column gap-2\">\n     <div bid=\"151\" class=\"d-flex gap-1 align-items-center\">\n      <div bid=\"152\" class=\"d-flex flex-column gap-1 flex-grow-1\">\n       <div bid=\"153\" class=\"d-flex gap-2 align-items-center\">\n        <div bid=\"154\" class=\"routing_marker_column position-absolute\">\n         <img bid=\"155\" class=\"img-fluid\" data-type=\"from\" draggable=\"true\" src=\"/assets/marker-green-2de0354ac458a358b9925a8b7f5746324122ff884605073e1ee602fe8006e060.png\"/>\n        </div>\n        <input autocomplete=\"on\" bid=\"156\" class=\"form-control py-1 px-2 ps-4\" data-lat=\"40.44415295\" data-lon=\"-79.96246095144505\" dir=\"auto\" id=\"route_from\" name=\"route_from\" placeholder=\"From\" type=\"text\" value=\"University of Pittsburgh, 4200, Fifth Avenue, Fifth &amp; Forbes, Downtown, Pittsburgh, Allegheny County, Pennsylvania, 15260, United States\"/>\n       </div>\n       <div bid=\"157\" class=\"d-flex gap-2 align-items-center\">\n        <div bid=\"158\" class=\"routing_marker_column position-absolute\">\n         <img bid=\"159\" class=\"img-fluid\" data-type=\"to\" draggable=\"true\" src=\"/assets/marker-red-ea1f472cd753fdbe59b263a7dc4886006415079498be4d13a18c12ed33ac5b26.png\"/>\n        </div>\n        <input autocomplete=\"on\" bid=\"160\" class=\"form-control py-1 px-2 ps-4 is-invalid\" dir=\"auto\" id=\"route_to\" name=\"route_to\" placeholder=\"To\" type=\"text\" value=\"Starbucks on Craig Street, Pittsburgh\"/>\n       </div>\n      </div>\n      <button bid=\"161\" class=\"reverse_directions btn btn-outline-secondary border-0 p-2 me-n1\" title=\"Reverse Directions\" type=\"button\" value=\"\">\n       <svg bid=\"162\" class=\"d-block\" fill=\"none\" height=\"22\" stroke=\"currentColor\" stroke-width=\"2\" viewbox=\"-11 -11 22 22\" width=\"22\">\n        <path d=\"m-4 -2 0 10 m-4 -4 4 4 4 -4\">\n        </path>\n        <path d=\"m4 2 0 -10 m4 4 -4 -4 -4 4\">\n        </path>\n       </svg>\n      </button>\n     </div>\n     <div bid=\"163\" class=\"d-flex gap-2 align-items-center\">\n      <div bid=\"164\" class=\"btn-group routing_modes\" role=\"group\">\n       <input autocomplete=\"off\" bid=\"165\" class=\"btn-check\" id=\"car\" name=\"modes\" type=\"radio\" value=\"on\"/>\n       <label bid=\"166\" class=\"btn btn-outline-secondary px-2\" for=\"car\" title=\"Car\">\n        <svg bid=\"167\" class=\"d-block\" fill=\"currentColor\" height=\"16\" width=\"16\">\n         <path d=\"M2.52 3.515A2.5 2.5 0 0 1 4.82 2h6.362c1 0 1.904.596 2.298 1.515l.792 1.848c.075.175.21.319.38.404.5.25.855.715.965 1.262l.335 1.679q.05.242.049.49v.413c0 .814-.39 1.543-1 1.997V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.338c-1.292.048-2.745.088-4 .088s-2.708-.04-4-.088V13.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-1.892c-.61-.454-1-1.183-1-1.997v-.413a2.5 2.5 0 0 1 .049-.49l.335-1.68c.11-.546.465-1.012.964-1.261a.8.8 0 0 0 .381-.404l.792-1.848ZM3 10a1 1 0 1 0 0-2 1 1 0 0 0 0 2m10 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2M6 8a1 1 0 0 0 0 2h4a1 1 0 1 0 0-2zM2.906 5.189a.51.51 0 0 0 .497.731c.91-.073 3.35-.17 4.597-.17s3.688.097 4.597.17a.51.51 0 0 0 .497-.731l-.956-1.913A.5.5 0 0 0 11.691 3H4.309a.5.5 0 0 0-.447.276L2.906 5.19Z\">\n         </path>\n        </svg>\n       </label>\n       <input autocomplete=\"off\" bid=\"168\" class=\"btn-check\" id=\"bicycle\" name=\"modes\" type=\"radio\" value=\"on\"/>\n       <label bid=\"169\" class=\"btn btn-outline-secondary px-2\" for=\"bicycle\" title=\"Bicycle\">\n        <svg bid=\"170\" class=\"d-block\" fill=\"currentColor\" height=\"16\" width=\"16\">\n         <path d=\"M4 4.5a.5.5 0 0 1 .5-.5H6a.5.5 0 0 1 0 1v.5h4.14l.386-1.158A.5.5 0 0 1 11 4h1a.5.5 0 0 1 0 1h-.64l-.311.935.807 1.29a3 3 0 1 1-.848.53l-.508-.812-2.076 3.322A.5.5 0 0 1 8 10.5H5.959a3 3 0 1 1-1.815-3.274L5 5.856V5h-.5a.5.5 0 0 1-.5-.5m1.5 2.443-.508.814c.5.444.85 1.054.967 1.743h1.139zM8 9.057 9.598 6.5H6.402zM4.937 9.5a2 2 0 0 0-.487-.877l-.548.877zM3.603 8.092A2 2 0 1 0 4.937 10.5H3a.5.5 0 0 1-.424-.765zm7.947.53a2 2 0 1 0 .848-.53l1.026 1.643a.5.5 0 1 1-.848.53z\">\n         </path>\n        </svg>\n       </label>\n       <input autocomplete=\"off\" bid=\"171\" checked=\"\" class=\"btn-check\" id=\"foot\" name=\"modes\" type=\"radio\" value=\"on\"/>\n       <label bid=\"172\" class=\"btn btn-outline-secondary px-2\" for=\"foot\" title=\"Foot\">\n        <svg bid=\"173\" class=\"d-block\" fill=\"currentColor\" height=\"16\" width=\"16\">\n         <path d=\"M9.5 1.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0M6.44 3.752A.75.75 0 017 3.5h1.445c.742 0 1.32.643 1.243 1.38l-.43 4.083a1.8 1.8 0 01-.088.395l-.318.906.213.242a.8.8 0 01.114.175l2 4.25a.75.75 0 11-1.357.638l-1.956-4.154-1.68-1.921A.75.75 0 016 8.96l.138-2.613-.435.489-.464 2.786a.75.75 0 11-1.48-.246l.5-3a.75.75 0 01.18-.375l2-2.25zm-.19 7.993v-1.418l1.204 1.375.261.524a.8.8 0 01-.12.231l-2.5 3.25a.75.75 0 11-1.19-.914zm4.22-4.215-.494-.494.205-1.843.006-.067 1.124 1.124h1.44a.75.75 0 010 1.5H11a.75.75 0 01-.531-.22Z\">\n         </path>\n        </svg>\n       </label>\n      </div>\n      <select bid=\"174\" class=\"routing_engines form-select py-1 px-2\" name=\"routing_engines\" value=\"fossgis_osrm\">\n       <option bid=\"175\" value=\"graphhopper\">\n        GraphHopper\n       </option>\n       <option bid=\"176\" value=\"fossgis_osrm\">\n        OSRM\n       </option>\n       <option bid=\"177\" value=\"fossgis_valhalla\">\n        Valhalla\n       </option>\n      </select>\n      <input bid=\"178\" class=\"routing_go btn btn-primary py-1 px-2\" name=\"commit\" type=\"submit\" value=\"Go\"/>\n     </div>\n    </div>\n    <div bid=\"179\" class=\"loader_copy d-none\">\n     <div bid=\"180\" class=\"text-center loader\">\n      <div bid=\"181\" class=\"spinner-border\" role=\"status\">\n       <span bid=\"182\" class=\"visually-hidden\">\n        Loading...\n       </span>\n      </div>\n     </div>\n    </div>\n   </form>\n  </div>\n  <div bid=\"183\" id=\"flash\">\n  </div>\n  <div bid=\"184\" id=\"browse_status\">\n  </div>\n  <div bid=\"185\" class=\"sidebar-close-controls sticky-top z-0\">\n   <div bid=\"186\" class=\"position-absolute end-0 m-2 rounded-5 bg-body-tertiary shadow-sm\">\n    <button bid=\"187\" class=\"btn-close d-block p-2 invisible\" disabled=\"\" type=\"button\" value=\"\">\n    </button>\n   </div>\n  </div>\n  <div bid=\"188\" class=\"sidebar-close-controls sticky-top\">\n   <div bid=\"189\" class=\"position-absolute end-0 m-2 rounded-5\">\n    <button aria-label=\"Close\" bid=\"190\" class=\"btn-close d-block p-2 rounded-5\" type=\"button\" value=\"\">\n    </button>\n   </div>\n  </div>\n  <div bid=\"191\" class=\"sidebar-close-controls position-relative\">\n   <div bid=\"192\" class=\"position-absolute end-0 bg-body p-4 ps-3\">\n   </div>\n  </div>\n  <div bid=\"193\" class=\"my-3 text-center loader\" hidden=\"\" id=\"sidebar_loader\">\n   <div bid=\"194\" class=\"spinner-border\" role=\"status\">\n    <span bid=\"195\" class=\"visually-hidden\">\n     Loading...\n    </span>\n   </div>\n  </div>\n  <div bid=\"196\" class=\"p-3 position-relative z-n1\" id=\"sidebar_content\">\n   <svg bid=\"521\" class=\"d-none\" height=\"20\" width=\"20\">\n    <symbol fill=\"none\" id=\"routing-sprite-start\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M10 16 a1 1 0 1 0 0 -2 1 1 0 1 0 0 2 m0 -4 v-8 m2.5 2 l-2.5 -2.5 -2.5 2.5 z\">\n     </path>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-destination\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M10 5 a1 1 0 1 0 0 -2 1 1 0 1 0 0 2 m0 12 v-8 m2.5 2 l-2.5 -2.5 -2.5 2.5 z\">\n     </path>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-straight\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M10 17 v-13 m2.5 2 l-2.5 -2.5 -2.5 2.5 z\">\n     </path>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-slight-right\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M7 17 v-3 q0 -2 2 -4 l5 -5 m0 0 h-3 l3 3 z\">\n     </path>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-right\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M8 17 v-5 q0 -3 3 -3 h4 m-2 2.5 l2.5 -2.5 -2.5 -2.5 z\">\n     </path>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-sharp-right\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M8 17 v-7 q0 -6 6 0 l2 2 m0 0 v-3 l-3 3 z\">\n     </path>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-u-turn-right\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M4 17 v-7 a4.5 4.5 0 0 1 9 0 v5 m2.5 -2 l-2.5 2.5 -2.5 -2.5 z\">\n     </path>\n    </symbol>\n    <symbol id=\"routing-sprite-slight-left\">\n     <use href=\"#routing-sprite-slight-right\" transform=\"matrix(-1 0 0 1 20 0)\">\n     </use>\n    </symbol>\n    <symbol id=\"routing-sprite-left\">\n     <use href=\"#routing-sprite-right\" transform=\"matrix(-1 0 0 1 21 0)\">\n     </use>\n    </symbol>\n    <symbol id=\"routing-sprite-sharp-left\">\n     <use href=\"#routing-sprite-sharp-right\" transform=\"matrix(-1 0 0 1 21 0)\">\n     </use>\n    </symbol>\n    <symbol id=\"routing-sprite-u-turn-left\">\n     <use href=\"#routing-sprite-u-turn-right\" transform=\"matrix(-1 0 0 1 20 0)\">\n     </use>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-roundabout\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M8 17 v-3 a 3 3 0 1 0 0 -6 3 3 0 1 0 0 6 m2 -4 l5 -5 m0 0 h-3 l3 3 z\">\n     </path>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-fork-right\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M9 14 q0 -2 -2 -4 l-3 -3\" opacity=\".5\">\n     </path>\n     <path d=\"M9 17 v-3 q0 -2 2 -4 l5 -5 m0 0 h-3 l3 3 z\">\n     </path>\n    </symbol>\n    <symbol id=\"routing-sprite-fork-left\">\n     <use href=\"#routing-sprite-fork-right\" transform=\"matrix(-1 0 0 1 20 0)\">\n     </use>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-merge-left\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M8 7 q0 2 -2 4 l-3 3\" opacity=\".5\">\n     </path>\n     <path d=\"M8 4 v3 q0 2 2 4 l5 5 m-5 -5 h3 l-3 3 z\">\n     </path>\n    </symbol>\n    <symbol id=\"routing-sprite-merge-right\">\n     <use href=\"#routing-sprite-merge-left\" transform=\"matrix(-1 0 0 1 20 0)\">\n     </use>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-end-of-road-right\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M2 9 h10\" opacity=\".5\">\n     </path>\n     <path d=\"M9 17 v-5 q0 -3 3 -3 h4 m-2 2.5 l2.5 -2.5 -2.5 -2.5 z\">\n     </path>\n    </symbol>\n    <symbol id=\"routing-sprite-end-of-road-left\">\n     <use href=\"#routing-sprite-end-of-road-right\" transform=\"matrix(-1 0 0 1 20 0)\">\n     </use>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-exit-right\" stroke=\"currentColor\" stroke-width=\"2\">\n     <path d=\"M9 14 v-8\" opacity=\".5\">\n     </path>\n     <path d=\"M9 17 v-3 q0 -2 2 -4 l5 -5 m0 0 h-3 l3 3 z\">\n     </path>\n    </symbol>\n    <symbol id=\"routing-sprite-exit-left\">\n     <use href=\"#routing-sprite-exit-right\" transform=\"matrix(-1 0 0 1 20 0)\">\n     </use>\n    </symbol>\n    <symbol fill=\"none\" id=\"routing-sprite-ferry\" stroke=\"currentColor\" stroke-width=\"1\">\n     <path d=\"M10.5 8 l-6 2 l2.5 2 v1.5 a2.828 2.828 0 0 1 1.5 1 a2.828 2.828 0 0 1 4 0 a2.828 2.828 0 0 1 1.5 -1 v-1.5 l2.5 -2 z\" fill=\"currentColor\">\n     </path>\n     <path d=\"M6.5 9.5 v-5 h8 v5 m-5.5 -6 h3\">\n     </path>\n     <path d=\"M5.5 16.5 a1.414 2.828 0 0 1 2 0 a1.414 2.828 0 0 0 2 0 a1.414 2.828 0 0 1 2 0 a1.414 2.828 0 0 0 2 0 a1.414 2.828 0 0 1 2 0\">\n     </path>\n    </symbol>\n   </svg>\n   <h2 bid=\"522\" class=\"me-4 text-break\">\n    Directions\n   </h2>\n   <div bid=\"523\" id=\"directions_content\">\n   </div>\n  </div>\n  <div bid=\"197\" class=\"welcome position-relative p-3\">\n   <button aria-label=\"Close\" bid=\"198\" class=\"btn-close position-absolute end-0 top-0 m-2 rounded-5 p-2\" type=\"button\" value=\"\">\n   </button>\n   <h2 bid=\"199\" class=\"me-4 text-break\">\n    Welcome to OpenStreetMap!\n   </h2>\n   <p bid=\"200\" class=\"fs-6 fw-light\">\n    OpenStreetMap is a map of the world, created by people like you and free to use under an open license.\n   </p>\n   <p bid=\"201\" class=\"fs-6 fw-light\">\n    Hosting is supported by\n    <a bid=\"202\" href=\"https://www.fastly.com/\">\n     Fastly\n    </a>\n    ,\n    <a bid=\"203\" href=\"https://osmfoundation.org/wiki/Corporate_Members\">\n     OSMF corporate members\n    </a>\n    , and other\n    <a bid=\"204\" href=\"https://hardware.openstreetmap.org/thanks/\">\n     partners\n    </a>\n    .\n   </p>\n   <div bid=\"205\" class=\"d-flex gap-2\">\n    <a bid=\"206\" class=\"btn btn-primary w-100 d-flex align-items-center justify-content-center\" href=\"/about\">\n     Learn More\n    </a>\n    <a bid=\"207\" class=\"btn btn-primary w-100 d-flex align-items-center justify-content-center\" href=\"/user/new\">\n     Start Mapping\n    </a>\n   </div>\n  </div>\n </div>\n <noscript bid=\"208\">\n  <div class=\"mt-5 p-3\">\n   <p>\n    You are either using a browser that does not support JavaScript, or you have disabled JavaScript.\n   </p>\n   <p>\n    OpenStreetMap uses JavaScript for its slippy map.\n   </p>\n  </div>\n </noscript>\n <div bid=\"209\" class=\"bg-body z-2\" id=\"map-ui\">\n  <div bid=\"210\" class=\"sidebar-close-controls sticky-top z-0\">\n   <div bid=\"211\" class=\"position-absolute end-0 m-2 rounded-5 bg-body-tertiary shadow-sm\">\n    <button bid=\"212\" class=\"btn-close d-block p-2 invisible\" disabled=\"\" type=\"button\" value=\"\">\n    </button>\n   </div>\n  </div>\n  <div bid=\"213\" class=\"sidebar-close-controls sticky-top\">\n   <div bid=\"214\" class=\"position-absolute end-0 m-2 rounded-5\">\n    <button aria-label=\"Close\" bid=\"215\" class=\"btn-close d-block p-2 rounded-5\" type=\"button\" value=\"\">\n    </button>\n   </div>\n  </div>\n  <div bid=\"216\" class=\"sidebar-close-controls position-relative\">\n   <div bid=\"217\" class=\"position-absolute end-0 bg-body p-4 ps-3\">\n   </div>\n  </div>\n  <div bid=\"218\" class=\"layers-ui position-relative z-n1\" style=\"display: none;\">\n   <h2 bid=\"219\" class=\"p-3 pb-0 pe-5 text-break\">\n    Map Layers\n   </h2>\n   <div bid=\"220\" class=\"base-layers d-grid gap-3 p-3 border-bottom border-secondary-subtle\">\n    <div bid=\"221\" class=\"position-relative\">\n     <div bid=\"222\" class=\"position-absolute top-0 start-0 bottom-0 end-0 z-0 bg-body-secondary leaflet-container leaflet-touch leaflet-fade-anim\">\n      <div bid=\"223\" class=\"leaflet-pane leaflet-map-pane\" style=\"transform: translate3d(0px, 0px, 0px);\">\n       <div bid=\"224\" class=\"leaflet-pane leaflet-tile-pane\">\n       </div>\n       <div bid=\"225\" class=\"leaflet-pane leaflet-overlay-pane\">\n       </div>\n       <div bid=\"226\" class=\"leaflet-pane leaflet-shadow-pane\">\n       </div>\n       <div bid=\"227\" class=\"leaflet-pane leaflet-marker-pane\">\n       </div>\n       <div bid=\"228\" class=\"leaflet-pane leaflet-tooltip-pane\">\n       </div>\n       <div bid=\"229\" class=\"leaflet-pane leaflet-popup-pane\">\n       </div>\n       <div bid=\"230\" class=\"leaflet-proxy leaflet-zoom-animated\">\n       </div>\n      </div>\n      <div bid=\"231\" class=\"leaflet-control-container\">\n       <div bid=\"232\" class=\"leaflet-top leaflet-left\">\n       </div>\n       <div bid=\"233\" class=\"leaflet-top leaflet-right\">\n       </div>\n       <div bid=\"234\" class=\"leaflet-bottom leaflet-left\">\n       </div>\n       <div bid=\"235\" class=\"leaflet-bottom leaflet-right\">\n       </div>\n      </div>\n      <div bid=\"236\" class=\"leaflet-contextmenu\" style=\"z-index: 10000; position: absolute;\">\n      </div>\n     </div>\n     <input bid=\"237\" checked=\"\" class=\"btn-check\" id=\"map-ui-layer-0\" name=\"layer\" type=\"radio\" value=\"on\"/>\n     <label bid=\"238\" class=\"btn btn-outline-primary border-4 rounded-3 bg-transparent position-absolute p-0 h-100 w-100 overflow-hidden\" for=\"map-ui-layer-0\">\n      <span bid=\"239\" class=\"badge position-absolute top-0 start-0 rounded-top-0 rounded-start-0 py-1 px-2 bg-body bg-opacity-75 text-body text-wrap text-start fs-6 lh-base\">\n       Standard\n      </span>\n     </label>\n    </div>\n    <div bid=\"240\" class=\"position-relative\">\n     <div bid=\"241\" class=\"position-absolute top-0 start-0 bottom-0 end-0 z-0 bg-body-secondary leaflet-container leaflet-touch leaflet-fade-anim\">\n      <div bid=\"242\" class=\"leaflet-pane leaflet-map-pane\" style=\"transform: translate3d(0px, 0px, 0px);\">\n       <div bid=\"243\" class=\"leaflet-pane leaflet-tile-pane\">\n       </div>\n       <div bid=\"244\" class=\"leaflet-pane leaflet-overlay-pane\">\n       </div>\n       <div bid=\"245\" class=\"leaflet-pane leaflet-shadow-pane\">\n       </div>\n       <div bid=\"246\" class=\"leaflet-pane leaflet-marker-pane\">\n       </div>\n       <div bid=\"247\" class=\"leaflet-pane leaflet-tooltip-pane\">\n       </div>\n       <div bid=\"248\" class=\"leaflet-pane leaflet-popup-pane\">\n       </div>\n       <div bid=\"249\" class=\"leaflet-proxy leaflet-zoom-animated\">\n       </div>\n      </div>\n      <div bid=\"250\" class=\"leaflet-control-container\">\n       <div bid=\"251\" class=\"leaflet-top leaflet-left\">\n       </div>\n       <div bid=\"252\" class=\"leaflet-top leaflet-right\">\n       </div>\n       <div bid=\"253\" class=\"leaflet-bottom leaflet-left\">\n       </div>\n       <div bid=\"254\" class=\"leaflet-bottom leaflet-right\">\n       </div>\n      </div>\n      <div bid=\"255\" class=\"leaflet-contextmenu\" style=\"z-index: 10000; position: absolute;\">\n      </div>\n     </div>\n     <input bid=\"256\" class=\"btn-check\" id=\"map-ui-layer-1\" name=\"layer\" type=\"radio\" value=\"on\"/>\n     <label bid=\"257\" class=\"btn btn-outline-primary border-4 rounded-3 bg-transparent position-absolute p-0 h-100 w-100 overflow-hidden\" for=\"map-ui-layer-1\">\n      <span bid=\"258\" class=\"badge position-absolute top-0 start-0 rounded-top-0 rounded-start-0 py-1 px-2 bg-body bg-opacity-75 text-body text-wrap text-start fs-6 lh-base\">\n       CyclOSM\n      </span>\n     </label>\n    </div>\n    <div bid=\"259\" class=\"position-relative\">\n     <div bid=\"260\" class=\"position-absolute top-0 start-0 bottom-0 end-0 z-0 bg-body-secondary leaflet-container leaflet-touch leaflet-fade-anim\">\n      <div bid=\"261\" class=\"leaflet-pane leaflet-map-pane\" style=\"transform: translate3d(0px, 0px, 0px);\">\n       <div bid=\"262\" class=\"leaflet-pane leaflet-tile-pane\">\n       </div>\n       <div bid=\"263\" class=\"leaflet-pane leaflet-overlay-pane\">\n       </div>\n       <div bid=\"264\" class=\"leaflet-pane leaflet-shadow-pane\">\n       </div>\n       <div bid=\"265\" class=\"leaflet-pane leaflet-marker-pane\">\n       </div>\n       <div bid=\"266\" class=\"leaflet-pane leaflet-tooltip-pane\">\n       </div>\n       <div bid=\"267\" class=\"leaflet-pane leaflet-popup-pane\">\n       </div>\n       <div bid=\"268\" class=\"leaflet-proxy leaflet-zoom-animated\">\n       </div>\n      </div>\n      <div bid=\"269\" class=\"leaflet-control-container\">\n       <div bid=\"270\" class=\"leaflet-top leaflet-left\">\n       </div>\n       <div bid=\"271\" class=\"leaflet-top leaflet-right\">\n       </div>\n       <div bid=\"272\" class=\"leaflet-bottom leaflet-left\">\n       </div>\n       <div bid=\"273\" class=\"leaflet-bottom leaflet-right\">\n       </div>\n      </div>\n      <div bid=\"274\" class=\"leaflet-contextmenu\" style=\"z-index: 10000; position: absolute;\">\n      </div>\n     </div>\n     <input bid=\"275\" class=\"btn-check\" id=\"map-ui-layer-2\" name=\"layer\" type=\"radio\" value=\"on\"/>\n     <label bid=\"276\" class=\"btn btn-outline-primary border-4 rounded-3 bg-transparent position-absolute p-0 h-100 w-100 overflow-hidden\" for=\"map-ui-layer-2\">\n      <span bid=\"277\" class=\"badge position-absolute top-0 start-0 rounded-top-0 rounded-start-0 py-1 px-2 bg-body bg-opacity-75 text-body text-wrap text-start fs-6 lh-base\">\n       Cycle Map\n      </span>\n     </label>\n    </div>\n    <div bid=\"278\" class=\"position-relative\">\n     <div bid=\"279\" class=\"position-absolute top-0 start-0 bottom-0 end-0 z-0 bg-body-secondary leaflet-container leaflet-touch leaflet-fade-anim\">\n      <div bid=\"280\" class=\"leaflet-pane leaflet-map-pane\" style=\"transform: translate3d(0px, 0px, 0px);\">\n       <div bid=\"281\" class=\"leaflet-pane leaflet-tile-pane\">\n       </div>\n       <div bid=\"282\" class=\"leaflet-pane leaflet-overlay-pane\">\n       </div>\n       <div bid=\"283\" class=\"leaflet-pane leaflet-shadow-pane\">\n       </div>\n       <div bid=\"284\" class=\"leaflet-pane leaflet-marker-pane\">\n       </div>\n       <div bid=\"285\" class=\"leaflet-pane leaflet-tooltip-pane\">\n       </div>\n       <div bid=\"286\" class=\"leaflet-pane leaflet-popup-pane\">\n       </div>\n       <div bid=\"287\" class=\"leaflet-proxy leaflet-zoom-animated\">\n       </div>\n      </div>\n      <div bid=\"288\" class=\"leaflet-control-container\">\n       <div bid=\"289\" class=\"leaflet-top leaflet-left\">\n       </div>\n       <div bid=\"290\" class=\"leaflet-top leaflet-right\">\n       </div>\n       <div bid=\"291\" class=\"leaflet-bottom leaflet-left\">\n       </div>\n       <div bid=\"292\" class=\"leaflet-bottom leaflet-right\">\n       </div>\n      </div>\n      <div bid=\"293\" class=\"leaflet-contextmenu\" style=\"z-index: 10000; position: absolute;\">\n      </div>\n     </div>\n     <input bid=\"294\" class=\"btn-check\" id=\"map-ui-layer-3\" name=\"layer\" type=\"radio\" value=\"on\"/>\n     <label bid=\"295\" class=\"btn btn-outline-primary border-4 rounded-3 bg-transparent position-absolute p-0 h-100 w-100 overflow-hidden\" for=\"map-ui-layer-3\">\n      <span bid=\"296\" class=\"badge position-absolute top-0 start-0 rounded-top-0 rounded-start-0 py-1 px-2 bg-body bg-opacity-75 text-body text-wrap text-start fs-6 lh-base\">\n       Transport Map\n      </span>\n     </label>\n    </div>\n    <div bid=\"297\" class=\"position-relative\">\n     <div bid=\"298\" class=\"position-absolute top-0 start-0 bottom-0 end-0 z-0 bg-body-secondary leaflet-container leaflet-touch leaflet-fade-anim\">\n      <div bid=\"299\" class=\"leaflet-pane leaflet-map-pane\" style=\"transform: translate3d(0px, 0px, 0px);\">\n       <div bid=\"300\" class=\"leaflet-pane leaflet-tile-pane\">\n       </div>\n       <div bid=\"301\" class=\"leaflet-pane leaflet-overlay-pane\">\n       </div>\n       <div bid=\"302\" class=\"leaflet-pane leaflet-shadow-pane\">\n       </div>\n       <div bid=\"303\" class=\"leaflet-pane leaflet-marker-pane\">\n       </div>\n       <div bid=\"304\" class=\"leaflet-pane leaflet-tooltip-pane\">\n       </div>\n       <div bid=\"305\" class=\"leaflet-pane leaflet-popup-pane\">\n       </div>\n       <div bid=\"306\" class=\"leaflet-proxy leaflet-zoom-animated\">\n       </div>\n      </div>\n      <div bid=\"307\" class=\"leaflet-control-container\">\n       <div bid=\"308\" class=\"leaflet-top leaflet-left\">\n       </div>\n       <div bid=\"309\" class=\"leaflet-top leaflet-right\">\n       </div>\n       <div bid=\"310\" class=\"leaflet-bottom leaflet-left\">\n       </div>\n       <div bid=\"311\" class=\"leaflet-bottom leaflet-right\">\n       </div>\n      </div>\n      <div bid=\"312\" class=\"leaflet-contextmenu\" style=\"z-index: 10000; position: absolute;\">\n      </div>\n     </div>\n     <input bid=\"313\" class=\"btn-check\" id=\"map-ui-layer-4\" name=\"layer\" type=\"radio\" value=\"on\"/>\n     <label bid=\"314\" class=\"btn btn-outline-primary border-4 rounded-3 bg-transparent position-absolute p-0 h-100 w-100 overflow-hidden\" for=\"map-ui-layer-4\">\n      <span bid=\"315\" class=\"badge position-absolute top-0 start-0 rounded-top-0 rounded-start-0 py-1 px-2 bg-body bg-opacity-75 text-body text-wrap text-start fs-6 lh-base\">\n       Tracestrack Topo\n      </span>\n     </label>\n    </div>\n    <div bid=\"316\" class=\"position-relative\">\n     <div bid=\"317\" class=\"position-absolute top-0 start-0 bottom-0 end-0 z-0 bg-body-secondary leaflet-container leaflet-touch leaflet-fade-anim\">\n      <div bid=\"318\" class=\"leaflet-pane leaflet-map-pane\" style=\"transform: translate3d(0px, 0px, 0px);\">\n       <div bid=\"319\" class=\"leaflet-pane leaflet-tile-pane\">\n       </div>\n       <div bid=\"320\" class=\"leaflet-pane leaflet-overlay-pane\">\n       </div>\n       <div bid=\"321\" class=\"leaflet-pane leaflet-shadow-pane\">\n       </div>\n       <div bid=\"322\" class=\"leaflet-pane leaflet-marker-pane\">\n       </div>\n       <div bid=\"323\" class=\"leaflet-pane leaflet-tooltip-pane\">\n       </div>\n       <div bid=\"324\" class=\"leaflet-pane leaflet-popup-pane\">\n       </div>\n       <div bid=\"325\" class=\"leaflet-proxy leaflet-zoom-animated\">\n       </div>\n      </div>\n      <div bid=\"326\" class=\"leaflet-control-container\">\n       <div bid=\"327\" class=\"leaflet-top leaflet-left\">\n       </div>\n       <div bid=\"328\" class=\"leaflet-top leaflet-right\">\n       </div>\n       <div bid=\"329\" class=\"leaflet-bottom leaflet-left\">\n       </div>\n       <div bid=\"330\" class=\"leaflet-bottom leaflet-right\">\n       </div>\n      </div>\n      <div bid=\"331\" class=\"leaflet-contextmenu\" style=\"z-index: 10000; position: absolute;\">\n      </div>\n     </div>\n     <input bid=\"332\" class=\"btn-check\" id=\"map-ui-layer-5\" name=\"layer\" type=\"radio\" value=\"on\"/>\n     <label bid=\"333\" class=\"btn btn-outline-primary border-4 rounded-3 bg-transparent position-absolute p-0 h-100 w-100 overflow-hidden\" for=\"map-ui-layer-5\">\n      <span bid=\"334\" class=\"badge position-absolute top-0 start-0 rounded-top-0 rounded-start-0 py-1 px-2 bg-body bg-opacity-75 text-body text-wrap text-start fs-6 lh-base\">\n       Humanitarian\n      </span>\n     </label>\n    </div>\n   </div>\n   <div bid=\"335\" class=\"overlay-layers p-3\">\n    <p bid=\"336\" class=\"text-body-secondary small mb-2\">\n     Enable overlays for troubleshooting the map\n    </p>\n    <ul bid=\"337\" class=\"list-unstyled form-check\">\n     <li aria-label=\"Zoom in to see map notes\" bid=\"338\" class=\"disabled\" data-bs-original-title=\"Zoom in to see map notes\" value=\"0\">\n      <label bid=\"339\" class=\"form-check-label\" id=\"label-layers-notes\">\n       <input bid=\"340\" class=\"form-check-input\" disabled=\"\" type=\"checkbox\" value=\"on\"/>\n       Map Notes\n      </label>\n     </li>\n     <li aria-label=\"Zoom in to see map data\" bid=\"341\" class=\"disabled\" data-bs-original-title=\"Zoom in to see map data\" value=\"0\">\n      <label bid=\"342\" class=\"form-check-label\" id=\"label-layers-data\">\n       <input bid=\"343\" class=\"form-check-input\" disabled=\"\" type=\"checkbox\" value=\"on\"/>\n       Map Data\n      </label>\n     </li>\n     <li bid=\"344\" class=\"\" value=\"0\">\n      <label bid=\"345\" class=\"form-check-label\" id=\"label-layers-gps\">\n       <input bid=\"346\" class=\"form-check-input\" type=\"checkbox\" value=\"on\"/>\n       Public GPS Traces\n      </label>\n     </li>\n    </ul>\n   </div>\n  </div>\n  <div bid=\"347\" class=\"key-ui position-relative z-n1\" style=\"display: none;\">\n   <h2 bid=\"348\" class=\"p-3 pb-0 pe-5 text-break\">\n    Map Key\n   </h2>\n   <div bid=\"349\" class=\"p-3\">\n   </div>\n  </div>\n  <div bid=\"350\" class=\"share-ui position-relative z-n1\" style=\"display: none;\">\n   <h2 bid=\"351\" class=\"p-3 pb-0 pe-5 text-break\">\n    Share\n   </h2>\n   <div bid=\"352\" class=\"share-link p-3 border-bottom border-secondary-subtle\">\n    <h4 bid=\"353\">\n     Link or HTML\n    </h4>\n    <form bid=\"354\">\n     <div bid=\"355\" class=\"form-check mb-3\">\n      <label bid=\"356\" class=\"form-check-label\" for=\"link_marker\">\n       Include marker\n      </label>\n      <input bid=\"357\" class=\"form-check-input\" id=\"link_marker\" type=\"checkbox\" value=\"on\"/>\n     </div>\n     <div bid=\"358\" class=\"btn-group btn-group-sm mb-2\">\n      <a bid=\"359\" class=\"btn btn-primary active\" for=\"long_input\" href=\"https://www.openstreetmap.org/?#map=5/38.01/-95.84\" id=\"long_link\">\n       Link\n      </a>\n      <a bid=\"360\" class=\"btn btn-primary\" for=\"short_input\" href=\"https://osm.org/go/T56jg-\" id=\"short_link\">\n       Short Link\n      </a>\n      <a bid=\"361\" class=\"btn btn-primary\" data-bs-title=\"HTML embedding is not available for this map layer\" for=\"embed_html\" href=\"#\" id=\"embed_link\">\n       HTML\n      </a>\n     </div>\n     <div bid=\"362\" class=\"share-tab\">\n      <input bid=\"363\" class=\"form-control form-control-sm font-monospace\" id=\"long_input\" readonly=\"readonly\" type=\"text\" value=\"https://www.openstreetmap.org/?#map=5/38.01/-95.84\"/>\n     </div>\n     <div bid=\"364\" class=\"share-tab\" style=\"display: none;\">\n      <input bid=\"365\" class=\"form-control form-control-sm font-monospace\" id=\"short_input\" readonly=\"readonly\" type=\"text\" value=\"https://osm.org/go/T56jg-\"/>\n     </div>\n     <div bid=\"366\" class=\"share-tab\" style=\"display: none;\">\n      <textarea bid=\"367\" class=\"form-control form-control-sm font-monospace\" height=\"350\" id=\"embed_html\" readonly=\"readonly\" src=\"https://www.openstreetmap.org/export/embed.html?bbox=-123.96972656250001%2C10.660607953624776%2C-67.71972656250001%2C58.008097793068906&amp;layer=mapnik\" style=\"border: 1px solid black\" value=\"&lt;iframe width=\"><small><a href=\"https://www.openstreetmap.org/?#map=5/38.01/-95.84\">View Larger Map</a></small>\"&gt;</textarea>\n      <p bid=\"368\" class=\"text-body-secondary\">\n       Paste HTML to embed in website\n      </p>\n     </div>\n    </form>\n   </div>\n   <div bid=\"369\" class=\"share-geo-uri p-3 border-bottom border-secondary-subtle\">\n    <h4 bid=\"370\">\n     Geo URI\n    </h4>\n    <a bid=\"372\" href=\"geo:38.01,-95.84?z=5\" id=\"geo_uri\">\n     geo:38.01,-95.84?z=5\n    </a>\n   </div>\n   <div bid=\"373\" class=\"share-image p-3\">\n    <h4 bid=\"374\">\n     Image\n    </h4>\n    <div bid=\"375\" class=\"text-body-secondary\" id=\"export-warning\" style=\"display: none;\">\n     Only the following layers can be exported as an image:\n     <ul bid=\"376\">\n      <li bid=\"377\" value=\"0\">\n       Standard\n      </li>\n      <li bid=\"378\" value=\"0\">\n       Cycle Map\n      </li>\n      <li bid=\"379\" value=\"0\">\n       Transport Map\n      </li>\n     </ul>\n    </div>\n    <form action=\"/export/finish\" bid=\"380\" id=\"export-image\" method=\"post\">\n     <div bid=\"381\" class=\"row mb-3\">\n      <label bid=\"382\" class=\"col-auto col-form-label\" for=\"mapnik_format\">\n       Format:\n      </label>\n      <div bid=\"383\" class=\"col-auto\">\n       <select bid=\"384\" class=\"form-select w-auto\" id=\"mapnik_format\" name=\"mapnik_format\" value=\"png\">\n        <option bid=\"385\" value=\"png\">\n         PNG\n        </option>\n        <option bid=\"386\" value=\"jpeg\">\n         JPEG\n        </option>\n        <option bid=\"387\" value=\"webp\">\n         WEBP\n        </option>\n        <option bid=\"388\" value=\"svg\">\n         SVG\n        </option>\n        <option bid=\"389\" value=\"pdf\">\n         PDF\n        </option>\n       </select>\n      </div>\n     </div>\n     <div bid=\"390\" class=\"row mb-3\" id=\"mapnik_scale_row\">\n      <label bid=\"391\" class=\"col-auto col-form-label\" for=\"mapnik_scale\">\n       Scale:\n      </label>\n      <div bid=\"392\" class=\"col-auto\">\n       <div bid=\"393\" class=\"input-group flex-nowrap\">\n        <span bid=\"394\" class=\"input-group-text\">\n         1 :\n        </span>\n        <input bid=\"395\" class=\"form-control\" id=\"mapnik_scale\" name=\"mapnik_scale\" type=\"text\" value=\"12000000\"/>\n       </div>\n      </div>\n     </div>\n     <div bid=\"396\" class=\"row mb-3\">\n      <div bid=\"397\" class=\"col-auto\">\n       <div bid=\"398\" class=\"form-check\">\n        <label bid=\"399\" class=\"form-check-label\" for=\"image_filter\">\n         Set custom dimensions\n        </label>\n        <input bid=\"400\" class=\"form-check-input\" id=\"image_filter\" type=\"checkbox\" value=\"on\"/>\n       </div>\n      </div>\n     </div>\n     <input bid=\"401\" id=\"mapnik_minlon\" name=\"minlon\" type=\"hidden\" value=\"-123.96972656250001\"/>\n     <input bid=\"402\" id=\"mapnik_minlat\" name=\"minlat\" type=\"hidden\" value=\"10.660607953624776\"/>\n     <input bid=\"403\" id=\"mapnik_maxlon\" name=\"maxlon\" type=\"hidden\" value=\"-67.71972656250001\"/>\n     <input bid=\"404\" id=\"mapnik_maxlat\" name=\"maxlat\" type=\"hidden\" value=\"58.008097793068906\"/>\n     <input bid=\"405\" id=\"mapnik_lat\" name=\"lat\" type=\"hidden\" value=\"38.013476231041935\"/>\n     <input bid=\"406\" id=\"mapnik_lon\" name=\"lon\" type=\"hidden\" value=\"-95.84472656250001\"/>\n     <input bid=\"407\" id=\"map_format\" name=\"format\" type=\"hidden\" value=\"mapnik\"/>\n     <input bid=\"408\" id=\"map_zoom\" name=\"zoom\" type=\"hidden\" value=\"5\"/>\n     <input bid=\"409\" id=\"map_width\" name=\"width\" type=\"hidden\" value=\"1864\"/>\n     <input bid=\"410\" id=\"map_height\" name=\"height\" type=\"hidden\" value=\"2016\"/>\n     <input bid=\"411\" name=\"authenticity_token\" type=\"hidden\" value=\"6hNWW7Ds1YzQNP3gYCqNf33WvSPj4aD8gq3tDycLMvEJN6xoWu43BFMynATGdHwqILi9JEqmNTXfQFDWn0RU2w\"/>\n     <p bid=\"412\" class=\"text-body-secondary\">\n      Image will show the\n      <span bid=\"413\" id=\"mapnik_image_layer\">\n       Standard\n      </span>\n      layer at\n      <span bid=\"414\" id=\"mapnik_image_width\">\n       1864\n      </span>\n      x\n      <span bid=\"415\" id=\"mapnik_image_height\">\n       2016\n      </span>\n     </p>\n     <input bid=\"416\" class=\"btn btn-primary\" type=\"submit\" value=\"Download\"/>\n    </form>\n   </div>\n  </div>\n </div>\n <div bid=\"417\" class=\"bg-body-secondary z-0 leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom\" id=\"map\" tabindex=\"2\">\n  <div bid=\"418\" class=\"leaflet-pane leaflet-map-pane\" style=\"transform: translate3d(0px, 0px, 0px);\">\n   <div bid=\"419\" class=\"leaflet-pane leaflet-tile-pane\">\n    <div bid=\"420\" class=\"leaflet-layer\" style=\"z-index: 1; opacity: 1;\">\n     <div bid=\"421\" class=\"leaflet-tile-container leaflet-zoom-animated\" style=\"z-index: 19; transform: translate3d(0px, 0px, 0px) scale(1);\">\n      <img alt=\"\" bid=\"422\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/6/12.png\" style=\"width: 256px; height: 256px; transform: translate3d(261px, 605px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"423\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/7/12.png\" style=\"width: 256px; height: 256px; transform: translate3d(517px, 605px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"424\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/6/11.png\" style=\"width: 256px; height: 256px; transform: translate3d(261px, 349px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"425\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/7/11.png\" style=\"width: 256px; height: 256px; transform: translate3d(517px, 349px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"426\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/6/13.png\" style=\"width: 256px; height: 256px; transform: translate3d(261px, 861px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"427\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/7/13.png\" style=\"width: 256px; height: 256px; transform: translate3d(517px, 861px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"428\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/5/12.png\" style=\"width: 256px; height: 256px; transform: translate3d(5px, 605px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"429\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/8/12.png\" style=\"width: 256px; height: 256px; transform: translate3d(773px, 605px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"430\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/5/11.png\" style=\"width: 256px; height: 256px; transform: translate3d(5px, 349px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"431\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/8/11.png\" style=\"width: 256px; height: 256px; transform: translate3d(773px, 349px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"432\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/5/13.png\" style=\"width: 256px; height: 256px; transform: translate3d(5px, 861px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"433\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/8/13.png\" style=\"width: 256px; height: 256px; transform: translate3d(773px, 861px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"434\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/6/10.png\" style=\"width: 256px; height: 256px; transform: translate3d(261px, 93px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"435\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/7/10.png\" style=\"width: 256px; height: 256px; transform: translate3d(517px, 93px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"436\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/6/14.png\" style=\"width: 256px; height: 256px; transform: translate3d(261px, 1117px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"437\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/7/14.png\" style=\"width: 256px; height: 256px; transform: translate3d(517px, 1117px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"438\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/5/10.png\" style=\"width: 256px; height: 256px; transform: translate3d(5px, 93px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"439\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/8/10.png\" style=\"width: 256px; height: 256px; transform: translate3d(773px, 93px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"440\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/4/12.png\" style=\"width: 256px; height: 256px; transform: translate3d(-251px, 605px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"441\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/9/12.png\" style=\"width: 256px; height: 256px; transform: translate3d(1029px, 605px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"442\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/5/14.png\" style=\"width: 256px; height: 256px; transform: translate3d(5px, 1117px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"443\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/8/14.png\" style=\"width: 256px; height: 256px; transform: translate3d(773px, 1117px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"444\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/4/11.png\" style=\"width: 256px; height: 256px; transform: translate3d(-251px, 349px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"445\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/9/11.png\" style=\"width: 256px; height: 256px; transform: translate3d(1029px, 349px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"446\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/4/13.png\" style=\"width: 256px; height: 256px; transform: translate3d(-251px, 861px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"447\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/9/13.png\" style=\"width: 256px; height: 256px; transform: translate3d(1029px, 861px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"448\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/6/9.png\" style=\"width: 256px; height: 256px; transform: translate3d(261px, -163px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"449\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/7/9.png\" style=\"width: 256px; height: 256px; transform: translate3d(517px, -163px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"450\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/6/15.png\" style=\"width: 256px; height: 256px; transform: translate3d(261px, 1373px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"451\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/7/15.png\" style=\"width: 256px; height: 256px; transform: translate3d(517px, 1373px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"452\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/4/10.png\" style=\"width: 256px; height: 256px; transform: translate3d(-251px, 93px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"453\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/9/10.png\" style=\"width: 256px; height: 256px; transform: translate3d(1029px, 93px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"454\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/4/14.png\" style=\"width: 256px; height: 256px; transform: translate3d(-251px, 1117px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"455\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/9/14.png\" style=\"width: 256px; height: 256px; transform: translate3d(1029px, 1117px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"456\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/5/9.png\" style=\"width: 256px; height: 256px; transform: translate3d(5px, -163px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"457\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/8/9.png\" style=\"width: 256px; height: 256px; transform: translate3d(773px, -163px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"458\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/5/15.png\" style=\"width: 256px; height: 256px; transform: translate3d(5px, 1373px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"459\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/8/15.png\" style=\"width: 256px; height: 256px; transform: translate3d(773px, 1373px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"460\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/4/9.png\" style=\"width: 256px; height: 256px; transform: translate3d(-251px, -163px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"461\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/9/9.png\" style=\"width: 256px; height: 256px; transform: translate3d(1029px, -163px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"462\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/4/15.png\" style=\"width: 256px; height: 256px; transform: translate3d(-251px, 1373px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"463\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/9/15.png\" style=\"width: 256px; height: 256px; transform: translate3d(1029px, 1373px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"524\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/10/12.png\" style=\"width: 256px; height: 256px; transform: translate3d(1285px, 605px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"525\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/10/11.png\" style=\"width: 256px; height: 256px; transform: translate3d(1285px, 349px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"526\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/10/13.png\" style=\"width: 256px; height: 256px; transform: translate3d(1285px, 861px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"527\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/10/10.png\" style=\"width: 256px; height: 256px; transform: translate3d(1285px, 93px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"528\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/11/12.png\" style=\"width: 256px; height: 256px; transform: translate3d(1541px, 605px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"529\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/10/14.png\" style=\"width: 256px; height: 256px; transform: translate3d(1285px, 1117px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"530\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/11/11.png\" style=\"width: 256px; height: 256px; transform: translate3d(1541px, 349px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"531\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/11/13.png\" style=\"width: 256px; height: 256px; transform: translate3d(1541px, 861px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"532\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/11/10.png\" style=\"width: 256px; height: 256px; transform: translate3d(1541px, 93px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"533\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/11/14.png\" style=\"width: 256px; height: 256px; transform: translate3d(1541px, 1117px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"534\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/10/9.png\" style=\"width: 256px; height: 256px; transform: translate3d(1285px, -163px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"535\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/10/15.png\" style=\"width: 256px; height: 256px; transform: translate3d(1285px, 1373px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"536\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/11/9.png\" style=\"width: 256px; height: 256px; transform: translate3d(1541px, -163px, 0px); opacity: 1;\"/>\n      <img alt=\"\" bid=\"537\" class=\"leaflet-tile leaflet-tile-loaded\" src=\"https://tile.openstreetmap.org/5/11/15.png\" style=\"width: 256px; height: 256px; transform: translate3d(1541px, 1373px, 0px); opacity: 1;\"/>\n     </div>\n    </div>\n   </div>\n   <div bid=\"464\" class=\"leaflet-pane leaflet-overlay-pane\">\n   </div>\n   <div bid=\"465\" class=\"leaflet-pane leaflet-shadow-pane\">\n    <img alt=\"\" bid=\"538\" class=\"leaflet-marker-shadow leaflet-zoom-animated\" src=\"/assets/leaflet/dist/images/marker-shadow-a2d94406ba198f61f68a71ed8f9f9c701122c0c33b775d990edceae4aece567f.png\" style=\"margin-left: -12px; margin-top: -41px; width: 41px; height: 41px; transform: translate3d(1001px, 621px, 0px);\"/>\n   </div>\n   <div bid=\"466\" class=\"leaflet-pane leaflet-marker-pane\">\n    <img alt=\"Marker\" bid=\"539\" class=\"leaflet-marker-icon leaflet-zoom-animated leaflet-interactive leaflet-marker-draggable\" role=\"button\" src=\"/assets/marker-green-2de0354ac458a358b9925a8b7f5746324122ff884605073e1ee602fe8006e060.png\" style=\"margin-left: -12px; margin-top: -41px; width: 25px; height: 41px; transform: translate3d(1001px, 621px, 0px); z-index: 621;\" tabindex=\"0\"/>\n   </div>\n   <div bid=\"467\" class=\"leaflet-pane leaflet-tooltip-pane\">\n   </div>\n   <div bid=\"468\" class=\"leaflet-pane leaflet-popup-pane\">\n   </div>\n   <div bid=\"469\" class=\"leaflet-proxy leaflet-zoom-animated\" style=\"transform: translate3d(1915px, 3159.5px, 0px) scale(16);\">\n   </div>\n  </div>\n  <div bid=\"470\" class=\"leaflet-control-container\">\n   <div bid=\"471\" class=\"leaflet-top leaflet-left\">\n   </div>\n   <div bid=\"472\" class=\"leaflet-top leaflet-right\">\n    <div bid=\"473\" class=\"zoom leaflet-control\">\n     <a aria-label=\"Zoom In\" bid=\"474\" class=\"control-button zoomin control-button-first\" data-bs-original-title=\"Zoom In\" href=\"#\">\n      <span bid=\"475\" class=\"icon zoomin\">\n      </span>\n     </a>\n     <a aria-label=\"Zoom Out\" bid=\"476\" class=\"control-button zoomout\" data-bs-original-title=\"Zoom Out\" href=\"#\">\n      <span bid=\"477\" class=\"icon zoomout\">\n      </span>\n     </a>\n    </div>\n    <div bid=\"478\" class=\"leaflet-control control-locate\">\n     <a aria-label=\"Show My Location\" bid=\"479\" class=\"control-button control-button-last\" data-bs-original-title=\"Show My Location\" href=\"#\" role=\"button\">\n      <span bid=\"480\" class=\"icon geolocate\">\n      </span>\n     </a>\n    </div>\n    <div bid=\"481\" class=\"control-layers leaflet-control\">\n     <a aria-label=\"Layers\" bid=\"482\" class=\"control-button control-button-first\" data-bs-original-title=\"Layers\" href=\"#\">\n      <span bid=\"483\" class=\"icon layers\">\n      </span>\n     </a>\n    </div>\n    <div bid=\"484\" class=\"control-key leaflet-control\">\n     <a bid=\"485\" class=\"control-button\" data-bs-original-title=\"Map Key\" href=\"#\">\n      <span bid=\"486\" class=\"icon key\">\n      </span>\n     </a>\n    </div>\n    <div bid=\"487\" class=\"control-share leaflet-control\">\n     <a aria-label=\"Share\" bid=\"488\" class=\"control-button control-button-last\" data-bs-original-title=\"Share\" href=\"#\">\n      <span bid=\"489\" class=\"icon share\">\n      </span>\n     </a>\n    </div>\n    <div bid=\"490\" class=\"control-note leaflet-control\">\n     <a bid=\"491\" class=\"control-button control-button-first control-button-last disabled\" data-bs-original-title=\"Zoom in to add a note to the map\" href=\"#\">\n      <span bid=\"492\" class=\"icon note\">\n      </span>\n     </a>\n    </div>\n    <div bid=\"493\" class=\"control-query leaflet-control\">\n     <a bid=\"494\" class=\"control-button control-button-first control-button-last disabled\" data-bs-original-title=\"Zoom in to query features\" href=\"#\">\n      <span bid=\"495\" class=\"icon query\">\n      </span>\n     </a>\n    </div>\n   </div>\n   <div bid=\"496\" class=\"leaflet-bottom leaflet-left\">\n    <div bid=\"497\" class=\"leaflet-control-scale leaflet-control\">\n     <div bid=\"498\" class=\"leaflet-control-scale-line\" style=\"width: 78px;\">\n      300 km\n     </div>\n     <div bid=\"499\" class=\"leaflet-control-scale-line\" style=\"width: 84px;\">\n      200 mi\n     </div>\n    </div>\n   </div>\n   <div bid=\"500\" class=\"leaflet-bottom leaflet-right\">\n    <div bid=\"501\" class=\"leaflet-control-attribution leaflet-control\">\n     \u00a9\n     <a bid=\"502\" href=\"/copyright\">\n      OpenStreetMap contributors\n     </a>\n     \u2665\n     <a bid=\"503\" class=\"donate-attr\" href=\"https://supporting.openstreetmap.org\">\n      Make a Donation\n     </a>\n     .\n     <a bid=\"504\" href=\"https://wiki.osmfoundation.org/wiki/Terms_of_Use\">\n      Website and API terms\n     </a>\n    </div>\n   </div>\n  </div>\n  <div bid=\"505\" class=\"leaflet-contextmenu\" style=\"z-index: 10000; position: absolute;\">\n   <a bid=\"506\" class=\"leaflet-contextmenu-item\" href=\"#\">\n    Directions from here\n   </a>\n   <a bid=\"507\" class=\"leaflet-contextmenu-item\" href=\"#\">\n    Directions to here\n   </a>\n   <a bid=\"508\" class=\"leaflet-contextmenu-item leaflet-contextmenu-item-disabled\" href=\"#\">\n    Add a note here\n   </a>\n   <a bid=\"509\" class=\"leaflet-contextmenu-item\" href=\"#\">\n    Show address\n   </a>\n   <a bid=\"510\" class=\"leaflet-contextmenu-item leaflet-contextmenu-item-disabled\" href=\"#\">\n    Query features\n   </a>\n   <a bid=\"511\" class=\"leaflet-contextmenu-item\" href=\"#\">\n    Centre map here\n   </a>\n  </div>\n </div>\n <div bid=\"512\" class=\"d-none\" id=\"attribution\">\n  <table bid=\"513\">\n   <tbody bid=\"514\">\n    <tr bid=\"515\">\n     <td bid=\"516\">\n      https://openstreetmap.org/copyright\n     </td>\n     <td bid=\"517\">\n      https://openstreetmap.org\n     </td>\n    </tr>\n    <tr bid=\"518\">\n     <td bid=\"519\" class=\"attribution_notice\" colspan=\"2\">\n      Copyright OpenStreetMap and contributors, under an open license\n     </td>\n    </tr>\n   </tbody>\n  </table>\n </div>\n</div>\n<noscript bid=\"520\">\n <p>\n  <img alt=\"\" class=\"matomo\" src=\"https://matomo.openstreetmap.org/matomo.php?idsite=1\"/>\n </p>\n</noscript>\n",
+        "extra_element_properties": {
+            "0": {
+                "bbox": []
+            },
+            "1": {},
+            "2": {},
+            "3": {},
+            "4": {},
+            "5": {},
+            "6": {},
+            "7": {},
+            "8": {},
+            "9": {},
+            "10": {},
+            "11": {},
+            "12": {},
+            "13": {},
+            "14": {},
+            "15": {},
+            "16": {},
+            "17": {},
+            "18": {},
+            "19": {},
+            "20": {},
+            "21": {},
+            "22": {},
+            "23": {},
+            "24": {},
+            "25": {},
+            "26": {},
+            "27": {},
+            "28": {},
+            "29": {},
+            "30": {},
+            "31": {},
+            "32": {},
+            "33": {},
+            "34": {},
+            "35": {},
+            "36": {},
+            "37": {},
+            "38": {},
+            "39": {},
+            "40": {},
+            "41": {},
+            "42": {},
+            "43": {},
+            "44": {},
+            "45": {},
+            "46": {},
+            "47": {},
+            "48": {
+                "bbox": []
+            },
+            "49": {
+                "bbox": []
+            },
+            "50": {
+                "bbox": []
+            },
+            "51": {
+                "bbox": []
+            },
+            "52": {
+                "bbox": []
+            },
+            "53": {},
+            "54": {
+                "bbox": []
+            },
+            "55": {},
+            "56": {},
+            "57": {},
+            "58": {},
+            "59": {},
+            "60": {},
+            "61": {},
+            "62": {},
+            "63": {},
+            "64": {},
+            "65": {},
+            "66": {},
+            "67": {},
+            "68": {},
+            "69": {},
+            "70": {},
+            "71": {},
+            "72": {},
+            "73": {},
+            "74": {},
+            "75": {},
+            "76": {},
+            "77": {},
+            "78": {},
+            "79": {},
+            "80": {},
+            "81": {},
+            "82": {},
+            "83": {},
+            "84": {},
+            "85": {},
+            "86": {},
+            "87": {},
+            "88": {},
+            "89": {},
+            "90": {},
+            "91": {},
+            "92": {},
+            "93": {},
+            "94": {},
+            "95": {},
+            "96": {},
+            "97": {},
+            "98": {},
+            "99": {},
+            "100": {},
+            "101": {},
+            "102": {
+                "bbox": []
+            },
+            "103": {
+                "bbox": []
+            },
+            "104": {
+                "bbox": []
+            },
+            "105": {},
+            "106": {},
+            "107": {},
+            "108": {},
+            "109": {},
+            "110": {
+                "bbox": []
+            },
+            "111": {
+                "bbox": []
+            },
+            "112": {
+                "bbox": []
+            },
+            "113": {
+                "bbox": []
+            },
+            "114": {
+                "bbox": []
+            },
+            "115": {
+                "bbox": []
+            },
+            "116": {
+                "bbox": []
+            },
+            "117": {
+                "bbox": []
+            },
+            "118": {
+                "bbox": []
+            },
+            "119": {
+                "bbox": []
+            },
+            "120": {
+                "bbox": []
+            },
+            "121": {
+                "bbox": []
+            },
+            "122": {
+                "bbox": []
+            },
+            "123": {
+                "bbox": []
+            },
+            "124": {
+                "bbox": []
+            },
+            "125": {
+                "bbox": []
+            },
+            "126": {
+                "bbox": []
+            },
+            "127": {
+                "bbox": []
+            },
+            "128": {},
+            "129": {},
+            "130": {},
+            "131": {
+                "bbox": []
+            },
+            "132": {
+                "bbox": []
+            },
+            "133": {
+                "bbox": []
+            },
+            "134": {
+                "bbox": []
+            },
+            "135": {
+                "bbox": []
+            },
+            "136": {
+                "bbox": []
+            },
+            "137": {},
+            "138": {},
+            "139": {},
+            "140": {},
+            "141": {},
+            "142": {},
+            "143": {},
+            "144": {},
+            "145": {},
+            "146": {},
+            "147": {
+                "bbox": []
+            },
+            "148": {
+                "bbox": []
+            },
+            "149": {
+                "bbox": []
+            },
+            "150": {
+                "bbox": []
+            },
+            "151": {
+                "bbox": []
+            },
+            "152": {
+                "bbox": []
+            },
+            "153": {
+                "bbox": []
+            },
+            "154": {
+                "bbox": []
+            },
+            "155": {
+                "bbox": []
+            },
+            "156": {
+                "bbox": []
+            },
+            "157": {
+                "bbox": []
+            },
+            "158": {
+                "bbox": []
+            },
+            "159": {
+                "bbox": []
+            },
+            "160": {
+                "bbox": []
+            },
+            "161": {
+                "bbox": []
+            },
+            "162": {
+                "bbox": []
+            },
+            "163": {
+                "bbox": []
+            },
+            "164": {
+                "bbox": []
+            },
+            "165": {
+                "bbox": []
+            },
+            "166": {
+                "bbox": []
+            },
+            "167": {
+                "bbox": []
+            },
+            "168": {
+                "bbox": []
+            },
+            "169": {
+                "bbox": []
+            },
+            "170": {
+                "bbox": []
+            },
+            "171": {
+                "bbox": []
+            },
+            "172": {
+                "bbox": []
+            },
+            "173": {
+                "bbox": []
+            },
+            "174": {
+                "bbox": []
+            },
+            "175": {},
+            "176": {},
+            "177": {},
+            "178": {
+                "bbox": []
+            },
+            "179": {},
+            "180": {},
+            "181": {},
+            "182": {},
+            "183": {
+                "bbox": []
+            },
+            "184": {
+                "bbox": []
+            },
+            "185": {},
+            "186": {},
+            "187": {},
+            "188": {},
+            "189": {},
+            "190": {},
+            "191": {},
+            "192": {},
+            "193": {},
+            "194": {},
+            "195": {},
+            "196": {},
+            "521": {},
+            "522": {},
+            "523": {},
+            "197": {
+                "bbox": []
+            },
+            "198": {
+                "bbox": []
+            },
+            "199": {
+                "bbox": []
+            },
+            "200": {
+                "bbox": []
+            },
+            "201": {
+                "bbox": []
+            },
+            "202": {
+                "bbox": []
+            },
+            "203": {
+                "bbox": []
+            },
+            "204": {
+                "bbox": []
+            },
+            "205": {
+                "bbox": []
+            },
+            "206": {
+                "bbox": []
+            },
+            "207": {
+                "bbox": []
+            },
+            "208": {},
+            "209": {},
+            "210": {},
+            "211": {},
+            "212": {},
+            "213": {},
+            "214": {},
+            "215": {},
+            "216": {},
+            "217": {},
+            "218": {},
+            "219": {},
+            "220": {},
+            "221": {},
+            "222": {},
+            "223": {},
+            "224": {},
+            "225": {},
+            "226": {},
+            "227": {},
+            "228": {},
+            "229": {},
+            "230": {},
+            "231": {},
+            "232": {},
+            "233": {},
+            "234": {},
+            "235": {},
+            "236": {},
+            "237": {},
+            "238": {},
+            "239": {},
+            "240": {},
+            "241": {},
+            "242": {},
+            "243": {},
+            "244": {},
+            "245": {},
+            "246": {},
+            "247": {},
+            "248": {},
+            "249": {},
+            "250": {},
+            "251": {},
+            "252": {},
+            "253": {},
+            "254": {},
+            "255": {},
+            "256": {},
+            "257": {},
+            "258": {},
+            "259": {},
+            "260": {},
+            "261": {},
+            "262": {},
+            "263": {},
+            "264": {},
+            "265": {},
+            "266": {},
+            "267": {},
+            "268": {},
+            "269": {},
+            "270": {},
+            "271": {},
+            "272": {},
+            "273": {},
+            "274": {},
+            "275": {},
+            "276": {},
+            "277": {},
+            "278": {},
+            "279": {},
+            "280": {},
+            "281": {},
+            "282": {},
+            "283": {},
+            "284": {},
+            "285": {},
+            "286": {},
+            "287": {},
+            "288": {},
+            "289": {},
+            "290": {},
+            "291": {},
+            "292": {},
+            "293": {},
+            "294": {},
+            "295": {},
+            "296": {},
+            "297": {},
+            "298": {},
+            "299": {},
+            "300": {},
+            "301": {},
+            "302": {},
+            "303": {},
+            "304": {},
+            "305": {},
+            "306": {},
+            "307": {},
+            "308": {},
+            "309": {},
+            "310": {},
+            "311": {},
+            "312": {},
+            "313": {},
+            "314": {},
+            "315": {},
+            "316": {},
+            "317": {},
+            "318": {},
+            "319": {},
+            "320": {},
+            "321": {},
+            "322": {},
+            "323": {},
+            "324": {},
+            "325": {},
+            "326": {},
+            "327": {},
+            "328": {},
+            "329": {},
+            "330": {},
+            "331": {},
+            "332": {},
+            "333": {},
+            "334": {},
+            "335": {},
+            "336": {},
+            "337": {},
+            "338": {},
+            "339": {},
+            "340": {},
+            "341": {},
+            "342": {},
+            "343": {},
+            "344": {},
+            "345": {},
+            "346": {},
+            "347": {},
+            "348": {},
+            "349": {},
+            "350": {},
+            "351": {},
+            "352": {},
+            "353": {},
+            "354": {},
+            "355": {},
+            "356": {},
+            "357": {},
+            "358": {},
+            "359": {},
+            "360": {},
+            "361": {},
+            "362": {},
+            "363": {},
+            "364": {},
+            "365": {},
+            "366": {},
+            "367": {},
+            "368": {},
+            "369": {},
+            "370": {},
+            "371": {},
+            "372": {},
+            "373": {},
+            "374": {},
+            "375": {},
+            "376": {},
+            "377": {},
+            "378": {},
+            "379": {},
+            "380": {},
+            "381": {},
+            "382": {},
+            "383": {},
+            "384": {},
+            "385": {},
+            "386": {},
+            "387": {},
+            "388": {},
+            "389": {},
+            "390": {},
+            "391": {},
+            "392": {},
+            "393": {},
+            "394": {},
+            "395": {},
+            "396": {},
+            "397": {},
+            "398": {},
+            "399": {},
+            "400": {},
+            "401": {},
+            "402": {},
+            "403": {},
+            "404": {},
+            "405": {},
+            "406": {},
+            "407": {},
+            "408": {},
+            "409": {},
+            "410": {},
+            "411": {},
+            "412": {},
+            "413": {},
+            "414": {},
+            "415": {},
+            "416": {},
+            "417": {
+                "bbox": []
+            },
+            "418": {
+                "bbox": []
+            },
+            "419": {
+                "bbox": []
+            },
+            "420": {
+                "bbox": []
+            },
+            "421": {
+                "bbox": []
+            },
+            "422": {
+                "bbox": []
+            },
+            "423": {
+                "bbox": []
+            },
+            "424": {
+                "bbox": []
+            },
+            "425": {
+                "bbox": []
+            },
+            "426": {
+                "bbox": []
+            },
+            "427": {
+                "bbox": []
+            },
+            "428": {
+                "bbox": []
+            },
+            "429": {
+                "bbox": []
+            },
+            "430": {
+                "bbox": []
+            },
+            "431": {
+                "bbox": []
+            },
+            "432": {
+                "bbox": []
+            },
+            "433": {
+                "bbox": []
+            },
+            "434": {
+                "bbox": []
+            },
+            "435": {
+                "bbox": []
+            },
+            "436": {
+                "bbox": []
+            },
+            "437": {
+                "bbox": []
+            },
+            "438": {
+                "bbox": []
+            },
+            "439": {
+                "bbox": []
+            },
+            "440": {
+                "bbox": []
+            },
+            "441": {
+                "bbox": []
+            },
+            "442": {
+                "bbox": []
+            },
+            "443": {
+                "bbox": []
+            },
+            "444": {
+                "bbox": []
+            },
+            "445": {
+                "bbox": []
+            },
+            "446": {
+                "bbox": []
+            },
+            "447": {
+                "bbox": []
+            },
+            "448": {
+                "bbox": []
+            },
+            "449": {
+                "bbox": []
+            },
+            "450": {
+                "bbox": []
+            },
+            "451": {
+                "bbox": []
+            },
+            "452": {
+                "bbox": []
+            },
+            "453": {
+                "bbox": []
+            },
+            "454": {
+                "bbox": []
+            },
+            "455": {
+                "bbox": []
+            },
+            "456": {
+                "bbox": []
+            },
+            "457": {
+                "bbox": []
+            },
+            "458": {
+                "bbox": []
+            },
+            "459": {
+                "bbox": []
+            },
+            "460": {
+                "bbox": []
+            },
+            "461": {
+                "bbox": []
+            },
+            "462": {
+                "bbox": []
+            },
+            "463": {
+                "bbox": []
+            },
+            "524": {
+                "bbox": []
+            },
+            "525": {
+                "bbox": []
+            },
+            "526": {
+                "bbox": []
+            },
+            "527": {
+                "bbox": []
+            },
+            "528": {
+                "bbox": []
+            },
+            "529": {
+                "bbox": []
+            },
+            "530": {
+                "bbox": []
+            },
+            "531": {
+                "bbox": []
+            },
+            "532": {
+                "bbox": []
+            },
+            "533": {
+                "bbox": []
+            },
+            "534": {
+                "bbox": []
+            },
+            "535": {
+                "bbox": []
+            },
+            "536": {
+                "bbox": []
+            },
+            "537": {
+                "bbox": []
+            },
+            "464": {
+                "bbox": []
+            },
+            "465": {
+                "bbox": []
+            },
+            "538": {
+                "bbox": []
+            },
+            "466": {
+                "bbox": []
+            },
+            "539": {
+                "bbox": []
+            },
+            "467": {
+                "bbox": []
+            },
+            "468": {
+                "bbox": []
+            },
+            "469": {
+                "bbox": []
+            },
+            "470": {
+                "bbox": []
+            },
+            "471": {
+                "bbox": []
+            },
+            "472": {
+                "bbox": []
+            },
+            "473": {
+                "bbox": []
+            },
+            "474": {
+                "bbox": []
+            },
+            "475": {
+                "bbox": []
+            },
+            "476": {
+                "bbox": []
+            },
+            "477": {
+                "bbox": []
+            },
+            "478": {
+                "bbox": []
+            },
+            "479": {
+                "bbox": []
+            },
+            "480": {
+                "bbox": []
+            },
+            "481": {
+                "bbox": []
+            },
+            "482": {
+                "bbox": []
+            },
+            "483": {
+                "bbox": []
+            },
+            "484": {
+                "bbox": []
+            },
+            "485": {
+                "bbox": []
+            },
+            "486": {
+                "bbox": []
+            },
+            "487": {
+                "bbox": []
+            },
+            "488": {
+                "bbox": []
+            },
+            "489": {
+                "bbox": []
+            },
+            "490": {
+                "bbox": []
+            },
+            "491": {
+                "bbox": []
+            },
+            "492": {
+                "bbox": []
+            },
+            "493": {
+                "bbox": []
+            },
+            "494": {
+                "bbox": []
+            },
+            "495": {
+                "bbox": []
+            },
+            "496": {
+                "bbox": []
+            },
+            "497": {
+                "bbox": []
+            },
+            "498": {
+                "bbox": []
+            },
+            "499": {
+                "bbox": []
+            },
+            "500": {
+                "bbox": []
+            },
+            "501": {
+                "bbox": []
+            },
+            "502": {
+                "bbox": []
+            },
+            "503": {
+                "bbox": []
+            },
+            "504": {
+                "bbox": []
+            },
+            "505": {},
+            "506": {},
+            "507": {},
+            "508": {},
+            "509": {},
+            "510": {},
+            "511": {},
+            "512": {},
+            "513": {},
+            "514": {},
+            "515": {},
+            "516": {},
+            "517": {},
+            "518": {},
+            "519": {},
+            "520": {}
+        }
+    },
+    "misc": {
+        "model_usage": {
+            "completion_tokens": 66,
+            "prompt_tokens": 5305,
+            "total_tokens": 5371,
+            "completion_tokens_details": null,
+            "prompt_tokens_details": {
+                "audio_tokens": null,
+                "cached_tokens": 0
+            },
+            "cache_creation_input_tokens": 0,
+            "cache_read_input_tokens": 0
+        },
+        "agent_config": {
+            "name": "InjectableAgent",
+            "model_id": "neulab/claude-3-7-sonnet-20250219",
+            "temperature": 1.0,
+            "char_limit": 80000,
+            "demo_mode": "off"
+        }
+    }
+}
