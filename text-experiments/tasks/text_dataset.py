@@ -1,4 +1,5 @@
 import os
+import re
 
 from yeval.prompt import YevalPrompt
 from yeval.task import register_task, YevalTask
@@ -11,15 +12,31 @@ from yeval.response import extract_answer, get_boxed_answer
 def extract_fn(answer: str):
     try:
         extracted_answer = answer.split('**Answer:**')[-1].strip()
-        # take numbers only with regex
-        return extracted_answer
+        pattern = r'-?\d+(\.\d+)?'
+        match = re.search(pattern, extracted_answer)
+        if match:
+            return match.group()
+        else:
+            return extracted_answer
+    except Exception as e:
+        return answer
+
+def extract_boxed_fn(answer: str):
+    try:
+        extracted_answer = get_boxed_answer(answer)
+        pattern = r'-?\d+(\.\d+)?'
+        match = re.search(pattern, extracted_answer)
+        if match:
+            return match.group()
+        else:
+            return extracted_answer
     except Exception as e:
         return answer
 
 @register_prompt("prompt_cot")
 class CotPrompt(YevalPrompt):
     user_message="Reason step by step and put your final answer within \\boxed{}."
-    postprocessor=get_boxed_answer
+    postprocessor=extract_boxed_fn
 
 @register_prompt("prompt_cot_answer")
 class CotAnswerPrompt(YevalPrompt):
@@ -58,6 +75,14 @@ Format the question in a way that makes it easiest to answer correctly. Only inc
 DO NOT provide the answer.\
 """
     sampling_args={"n": 10, "stop": ["Answer:"], "temperature": 1.0}
+    
+@register_task("gsm_symbolic_generate_paraphrase_4")
+class GSM8KParaphraseGenerate3(GSM8KSymbolicTask):
+    system_message="""You are a helpful rewriting model. \
+Rewrite the question as concisely as possible. Only include information required to answer the question accurately. \
+DO NOT provide the answer.\
+"""
+    sampling_args={"n": 10, "stop": ["Answer:"], "temperature": 1.0}
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -83,7 +108,7 @@ def spread(dataset):
 @register_task("gsm_symbolic_paraphrased")
 class GSM8KParaphraseTask(GSM8KSymbolicTask):
     data_path="json"
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, "data/gsm_symbolic/output.jsonl")}}
+    data_kwargs={"data_files": {"test" : os.path.join(dir_path, "data/gsm_symbolic_1/output.jsonl")}}
     preprocessing=spread
     input_text=lambda x: x["input"]
     output_text=lambda x: x["output"]
