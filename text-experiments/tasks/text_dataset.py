@@ -89,16 +89,19 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 def spread(dataset):
 
     def _spread(examples):
+        all_idx = []
+        all_sample_id = []
         all_sentence = []
         all_ground_truth = []
-        all_idx = []
-        for idx, answer, ground_truth in zip(examples["idx"], examples["answer"], examples["ground_truth"]):
-            all_sentence.extend(answer)
+        for idx, (sample_id, answer, ground_truth) in enumerate(zip(examples["sample_id"], examples["answer"], examples["ground_truth"])):
             all_idx.extend([idx] * len(answer))
+            all_sample_id.extend([sample_id] * len(answer))
+            all_sentence.extend(answer)
             all_ground_truth.extend([ground_truth] * len(answer))
 
         return {
             "idx": all_idx,
+            "sample_id": all_sample_id,
             "input": all_sentence,
             "output": all_ground_truth,
             }
