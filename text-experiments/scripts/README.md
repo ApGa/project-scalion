@@ -19,3 +19,4 @@ bash scripts/eval.sh \
     gsm_symbolic_paraphrasedp//prompt_cot \
     http://localhost:8000/v1 \
     "--include_path tasks/ --n_samples 100 --output_path output/"
+
