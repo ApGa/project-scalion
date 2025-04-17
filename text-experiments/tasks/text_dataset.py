@@ -46,12 +46,32 @@ class CotAnswerPrompt(YevalPrompt):
 
 @register_task("gsm_symbolic")
 class GSM8KSymbolicTask(YevalTask):
-    data_path="apple/GSM-Symbolic"
-    data_name="main"
+    data_path="json"
+    data_kwargs={"data_dir": os.path.join(dir_path, f"data/gsm_symbolic/main/")}
     input_text=lambda x: x["question"]
     output_text=lambda x: x["answer"].split("####")[-1].strip()
-    test_split="test"
+    test_split="train"
     evaluation={"accuracy": lambda x, y: x == y}
+
+@register_task("gsm_symbolic_p1")
+class GSM8KSymbolicP1Task(GSM8KSymbolicTask):
+    data_kwargs={"data_dir": os.path.join(dir_path, f"data/gsm_symbolic/p1/")}
+
+@register_task("gsm_symbolic_p2")
+class GSM8KSymbolicP2Task(GSM8KSymbolicTask):
+    data_kwargs={"data_dir": os.path.join(dir_path, f"data/gsm_symbolic/p2/")}
+
+@register_task("test_gsm_symbolic")
+class GSM8KSymbolicTestTask(GSM8KSymbolicTask):
+    test_split="test"
+
+@register_task("test_gsm_symbolic_p1")
+class GSM8KSymbolicP1TestTask(GSM8KSymbolicP1Task):
+    test_split="test"
+
+@register_task("test_gsm_symbolic_p2")
+class GSM8KSymbolicP2TestTask(GSM8KSymbolicP2Task):
+    test_split="test"
 
 def shuffle(dataset, seed=0):
     shuffled_dataset = dataset.shuffle(seed=seed)
