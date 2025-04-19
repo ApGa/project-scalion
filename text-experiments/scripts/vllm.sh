@@ -5,7 +5,7 @@
 #SBATCH --gres=gpu:L40S:2
 #SBATCH --mem=48GB
 #SBATCH --time 2-00:00:00
-#SBATCH --exclude=babel-13-37,babel-9-7,babel-0-27,babel-0-19,babel-4-37,babel-9-11,babel-13-33,babel-14-33,babel-8-17,babel-4-13,babel-14-1,babel-3-9,babel-4-9,babel-13-25
+#SBATCH --exclude=babel-13-37,babel-9-7,babel-0-27,babel-0-19,babel-4-37,babel-9-11,babel-13-33,babel-14-33,babel-8-17,babel-4-13,babel-14-1,babel-3-9,babel-4-9,babel-13-25,babel-14-13
 #SBATCH --partition=general
 
 usage() {
