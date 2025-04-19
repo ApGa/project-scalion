@@ -10,6 +10,8 @@ from yeval.task.commonsense_qa import CommonsenseQATask
 from yeval.task.gsm8k import GSM8KTask
 from yeval.response import extract_answer, get_boxed_answer
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
 def extract_fn(answer: str):
     try:
         extracted_answer = answer.split('**Answer:**')[-1].strip()
@@ -77,43 +79,42 @@ def shuffle(dataset, seed=0):
     shuffled_dataset = dataset.shuffle(seed=seed)
     return shuffled_dataset.flatten_indices()
 
-@register_task("gsm_symbolic_generate_paraphrase_1")
+@register_task("generate_paraphrase_1")
 class GSM8KParaphraseGenerate1(GSM8KSymbolicTask):
     system_message="""You are a helpful paraphrasing model. \
 Paraphrase or reformat the question in a way that makes it easier to answer. \
 DO NOT provide the answer.\
 """
     preprocessing=lambda x: partial(shuffle, seed=1001)(x)
-    sampling_args={"n": 10, "stop": ["Answer:"], "temperature": 1.0}
+    sampling_args={
+        "n": 10,
+        "temperature": 1.0,
+        "extra_body":{"guided_regex": "Paraphrase:.*"}
+        }
     
-@register_task("gsm_symbolic_generate_paraphrase_2")
-class GSM8KParaphraseGenerate2(GSM8KSymbolicTask):
+@register_task("generate_paraphrase_2")
+class GSM8KParaphraseGenerate2(GSM8KParaphraseGenerate1):
     system_message="""You are a helpful rewriting model. \
 Rewrite the question to make it easier to answer correctly. This rewrite can be a paraphrase or a formatting change. \
 DO NOT provide the answer.\
 """
     preprocessing=lambda x: partial(shuffle, seed=1002)(x)
-    sampling_args={"n": 10, "stop": ["Answer:"], "temperature": 1.0}
     
-@register_task("gsm_symbolic_generate_paraphrase_3")
-class GSM8KParaphraseGenerate3(GSM8KSymbolicTask):
+@register_task("generate_paraphrase_3")
+class GSM8KParaphraseGenerate3(GSM8KParaphraseGenerate1):
     system_message="""You are a helpful reformatting model. \
 Format the question in a way that makes it easiest to answer correctly. Only include the necessary information to answer the question correctly. \
 DO NOT provide the answer.\
 """
     preprocessing=lambda x: partial(shuffle, seed=1003)(x)
-    sampling_args={"n": 10, "stop": ["Answer:"], "temperature": 1.0}
     
-@register_task("gsm_symbolic_generate_paraphrase_4")
-class GSM8KParaphraseGenerate3(GSM8KSymbolicTask):
+@register_task("generate_paraphrase_4")
+class GSM8KParaphraseGenerate3(GSM8KParaphraseGenerate1):
     system_message="""You are a helpful rewriting model. \
 Rewrite the question as concisely as possible. Only include information required to answer the question accurately. \
 DO NOT provide the answer.\
 """
     preprocessing=lambda x: partial(shuffle, seed=1004)(x)
-    sampling_args={"n": 10, "stop": ["Answer:"], "temperature": 1.0}
-
-dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def spread(dataset):
 
@@ -123,6 +124,7 @@ def spread(dataset):
         all_sentence = []
         all_ground_truth = []
         for idx, (sample_id, answer, ground_truth) in enumerate(zip(examples["sample_id"], examples["answer"], examples["ground_truth"])):
+            answer = [ans.split("Paraphrase:")[-1].strip() for ans in answer]
             all_idx.extend([idx] * len(answer))
             all_sample_id.extend([sample_id] * len(answer))
             all_sentence.extend(answer)
@@ -134,16 +136,19 @@ def spread(dataset):
             "input": all_sentence,
             "output": all_ground_truth,
             }
-    dataset["test"] = dataset["test"].map(_spread, batched=True, remove_columns=dataset["test"].column_names)
+
+    for key in dataset.num_columns.keys():
+        dataset[key] = dataset[key].map(_spread, batched=True, remove_columns=dataset[key].column_names)
     return dataset
 
-MODEL = "Qwen2.5B-7B-Instruct"
+MODEL = "Qwen/Qwen2.5-3B-Instruct"
 
 @register_task("gsm_symbolic_1_paraphrased")
 class GSM8KParaphrase1Task(GSM8KSymbolicTask):
     user_message="Let's reason step by step and and then write the final answer within \\boxed{}."
     data_path="json"
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/{MODEL}/gsm_symbolic_1/output.jsonl")}}
+    test_split="test"
+    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL.replace("/", "_")}/gsm_symbolic_1/output.jsonl")}}
     preprocessing=spread
     postprocessor=get_boxed_answer
     input_text=lambda x: x["input"]
@@ -151,12 +156,12 @@ class GSM8KParaphrase1Task(GSM8KSymbolicTask):
 
 @register_task("gsm_symbolic_2_paraphrased")
 class GSM8KParaphrase2Task(GSM8KParaphrase1Task):
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/{MODEL}/gsm_symbolic_2/output.jsonl")}}
+    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL.replace("/", "_")}/gsm_symbolic_2/output.jsonl")}}
 
 @register_task("gsm_symbolic_3_paraphrased")
 class GSM8KParaphrase3Task(GSM8KParaphrase1Task):
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/{MODEL}/gsm_symbolic_3/output.jsonl")}}
+    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL.replace("/", "_")}/gsm_symbolic_3/output.jsonl")}}
 
 @register_task("gsm_symbolic_4_paraphrased")
 class GSM8KParaphrase4Task(GSM8KParaphrase1Task):
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/{MODEL}/gsm_symbolic_4/output.jsonl")}}
+    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL.replace("/", "_")}/gsm_symbolic_4/output.jsonl")}}
