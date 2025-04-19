@@ -148,7 +148,7 @@ class GSM8KParaphrase1Task(GSM8KSymbolicTask):
     user_message="Let's reason step by step and and then write the final answer within \\boxed{}."
     data_path="json"
     test_split="test"
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL.replace("/", "_")}/gsm_symbolic_1/output.jsonl")}}
+    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL}/gsm_symbolic_1/output.jsonl")}}
     preprocessing=spread
     postprocessor=get_boxed_answer
     input_text=lambda x: x["input"]
@@ -156,12 +156,12 @@ class GSM8KParaphrase1Task(GSM8KSymbolicTask):
 
 @register_task("gsm_symbolic_2_paraphrased")
 class GSM8KParaphrase2Task(GSM8KParaphrase1Task):
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL.replace("/", "_")}/gsm_symbolic_2/output.jsonl")}}
+    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL}/gsm_symbolic_2/output.jsonl")}}
 
 @register_task("gsm_symbolic_3_paraphrased")
 class GSM8KParaphrase3Task(GSM8KParaphrase1Task):
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL.replace("/", "_")}/gsm_symbolic_3/output.jsonl")}}
+    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL}/gsm_symbolic_3/output.jsonl")}}
 
 @register_task("gsm_symbolic_4_paraphrased")
 class GSM8KParaphrase4Task(GSM8KParaphrase1Task):
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL.replace("/", "_")}/gsm_symbolic_4/output.jsonl")}}
+    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL}/gsm_symbolic_4/output.jsonl")}}
