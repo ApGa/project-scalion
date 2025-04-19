@@ -11,6 +11,7 @@ from yeval.task.gsm8k import GSM8KTask
 from yeval.response import extract_answer, get_boxed_answer
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
+MODEL = "Qwen/Qwen2.5-3B-Instruct"
 
 def extract_fn(answer: str):
     try:
@@ -116,6 +117,24 @@ DO NOT provide the answer.\
 """
     preprocessing=lambda x: partial(shuffle, seed=1004)(x)
 
+@register_task("generate_paraphrase_with_feedback")
+class GSM8KParaphraseGenerateWithFeedback(YevalTask):
+    data_path="json"
+    # data_kwargs={"data_dir": os.path.join(dir_path, f"data/gsm_symbolic/main/")}
+    input_text=lambda x: x["input"]
+    output_text=lambda x: x["answer"].split("####")[-1].strip()
+    test_split="train"
+    evaluation={"accuracy": lambda x, y: x == y}
+    system_message="""You are a helpful question rewriting model. \
+Your job is to paraphrase or reformat the question in a way that makes it easier for a solver to answer the question. \
+"""
+    preprocessing=lambda x: partial(shuffle, seed=1001)(x)
+    sampling_args={
+        "n": 10,
+        "temperature": 1.0,
+        "extra_body":{"guided_regex": "Paraphrase:.*"}
+        }
+
 def spread(dataset):
 
     def _spread(examples):
@@ -141,8 +160,6 @@ def spread(dataset):
         dataset[key] = dataset[key].map(_spread, batched=True, remove_columns=dataset[key].column_names)
     return dataset
 
-MODEL = "Qwen/Qwen2.5-3B-Instruct"
-
 @register_task("gsm_symbolic_1_paraphrased")
 class GSM8KParaphrase1Task(GSM8KSymbolicTask):
     user_message="Let's reason step by step and and then write the final answer within \\boxed{}."
@@ -165,3 +182,13 @@ class GSM8KParaphrase3Task(GSM8KParaphrase1Task):
 @register_task("gsm_symbolic_4_paraphrased")
 class GSM8KParaphrase4Task(GSM8KParaphrase1Task):
     data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL.replace("/", "_")}/gsm_symbolic_4/output.jsonl")}}
+
+@register_task("gsm_symbolic_paraphrased_with_feedback")
+class GSM8KParaphrase1Task(GSM8KSymbolicTask):
+    user_message="Let's reason step by step and and then write the final answer within \\boxed{}."
+    data_path="json"
+    test_split="test"
+    preprocessing=spread
+    postprocessor=get_boxed_answer
+    input_text=lambda x: x["input"]
+    output_text=lambda x: x["output"]
