@@ -10,6 +10,8 @@ from yeval.task.commonsense_qa import CommonsenseQATask
 from yeval.task.gsm8k import GSM8KTask
 from yeval.response import extract_answer, get_boxed_answer
 
+from yeval.metrics import math_eval
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
 def extract_fn(answer: str):
@@ -53,7 +55,7 @@ class GSM8KSymbolicTask(YevalTask):
     input_text=lambda x: x["question"]
     output_text=lambda x: x["answer"].split("####")[-1].strip()
     test_split="train"
-    evaluation={"accuracy": lambda x, y: x == y}
+    evaluation={"accuracy": math_eval}
 
 @register_task("gsm_symbolic_p1")
 class GSM8KSymbolicP1Task(GSM8KSymbolicTask):
@@ -141,27 +143,18 @@ def spread(dataset):
         dataset[key] = dataset[key].map(_spread, batched=True, remove_columns=dataset[key].column_names)
     return dataset
 
-MODEL = "Qwen/Qwen2.5-3B-Instruct"
+MODEL="Qwen/Qwen2.5-3B-Instruct"
 
-@register_task("gsm_symbolic_1_paraphrased")
-class GSM8KParaphrase1Task(GSM8KSymbolicTask):
+@register_task("score_paraphrase")
+class ScoreParaphraseTask(YevalTask):
     user_message="Let's reason step by step and and then write the final answer within \\boxed{}."
     data_path="json"
-    test_split="test"
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL}/gsm_symbolic_1/output.jsonl")}}
+    test_split="train"
+    # Set where the data is
+    # data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL}/gsm_symbolic_1/output.jsonl")}}
+    # data_kwargs={"data_files": os.path.join(dir_path, f"data/paraphrased/{MODEL}/gsm_symbolic_1/output.jsonl")}
     preprocessing=spread
     postprocessor=get_boxed_answer
     input_text=lambda x: x["input"]
     output_text=lambda x: x["output"]
-
-@register_task("gsm_symbolic_2_paraphrased")
-class GSM8KParaphrase2Task(GSM8KParaphrase1Task):
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL}/gsm_symbolic_2/output.jsonl")}}
-
-@register_task("gsm_symbolic_3_paraphrased")
-class GSM8KParaphrase3Task(GSM8KParaphrase1Task):
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL}/gsm_symbolic_3/output.jsonl")}}
-
-@register_task("gsm_symbolic_4_paraphrased")
-class GSM8KParaphrase4Task(GSM8KParaphrase1Task):
-    data_kwargs={"data_files": {"test" : os.path.join(dir_path, f"data/paraphrased/{MODEL}/gsm_symbolic_4/output.jsonl")}}
+    evaluation={"accuracy": math_eval}
