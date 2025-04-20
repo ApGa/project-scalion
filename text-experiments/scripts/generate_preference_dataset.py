@@ -71,13 +71,13 @@ if __name__ == "__main__":
     prompt_list = os.listdir(args.input_path)
     collected_responses = {}
     for prompt in prompt_list:
-        
+
         responses = load_dataset("json", data_files=os.path.join(args.input_path, prompt, "output.jsonl"))['train']
         source_dataset = load_dataset("json", data_files=os.path.join(args.source_path, prompt, "output.jsonl"))["train"]
 
         for i in range(len(source_dataset)):
             original_query = source_dataset[i]['step'][0]['full_input'][-1]['content']
-            paraphrased_list = source_dataset[i]['answer']
+            paraphrased_list = [line.split("Paraphrase:")[-1].strip() for line in source_dataset[i]['answer']]
 
             for j in range(10):
                 sample_id = 10*i+j
