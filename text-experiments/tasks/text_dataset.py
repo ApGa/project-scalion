@@ -124,7 +124,7 @@ class GSM8KParaphraseGenerateWithFeedback(YevalTask):
     data_path="json"
     # data_kwargs={"data_dir": os.path.join(dir_path, f"data/gsm_symbolic/main/")}
     input_text=lambda x: x["input"]
-    output_text=lambda x: x["answer"].split("####")[-1].strip()
+    output_text=lambda x: x["answer"]
     test_split="train"
     evaluation={"accuracy": lambda x, y: x == y}
     system_message="""You are a helpful question rewriting model. \
@@ -169,16 +169,6 @@ class ScoreParaphraseTask(YevalTask):
     user_message="Let's reason step by step and and then write the final answer within \\boxed{}."
     data_path="json"
     test_split="train"
-    preprocessing=spread
-    postprocessor=get_boxed_answer
-    input_text=lambda x: x["input"]
-    output_text=lambda x: x["output"]
-
-@register_task("gsm_symbolic_paraphrased_with_feedback")
-class GSM8KParaphrase1Task(GSM8KSymbolicTask):
-    user_message="Let's reason step by step and and then write the final answer within \\boxed{}."
-    data_path="json"
-    test_split="test"
     preprocessing=spread
     postprocessor=get_boxed_answer
     input_text=lambda x: x["input"]

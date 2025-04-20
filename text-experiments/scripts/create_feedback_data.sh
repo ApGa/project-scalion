@@ -24,17 +24,15 @@ OUTPUT_PATH=$4
 RUN_NAME=$5
 
 # first evaluate on original questions
-# yeval \
-#     --model $MODEL \
-#     --task gsm_symbolicp//prompt_cot \
-#     --trust_remote_code \
-#     --api_base $API_BASE \
-#     --output_path $OUTPUT_PATH/0 \
-#     --include_path tasks/ \
-#     --run_name $RUN_NAME
+yeval \
+    --model $MODEL \
+    --task gsm_symbolicp//prompt_cot \
+    --trust_remote_code \
+    --api_base $API_BASE \
+    --output_path $OUTPUT_PATH/0 \
+    --include_path tasks/ \
+    --run_name $RUN_NAME
 
-mkdir -p $OUTPUT_PATH/paraphrase_input_data
-mkdir -p $OUTPUT_PATH/paraphrase_questions
 for i in $(seq 1 $MAX_ITERATIONS); do
     model_output_path=$OUTPUT_PATH/$((i-1))/$RUN_NAME/output.jsonl
     save_filepath=$OUTPUT_PATH/paraphrase_input_data/$i.jsonl
@@ -61,13 +59,14 @@ for i in $(seq 1 $MAX_ITERATIONS); do
         --trust_remote_code \
         --api_base $API_BASE \
         --output_path $output_path \
-        --include_path tasks/
+        --include_path tasks/ \
+        --run_name $RUN_NAME
 
     # then evaluate the paraphrased questions    
-    data_kwargs='{"data_files": "'$output_path/output.jsonl'"}'
+    data_kwargs='{"data_files": "'$output_path/$RUN_NAME/output.jsonl'"}'
     yeval \
         --model $MODEL \
-        --task score_paraphrase//prompt_cot \
+        --task score_paraphrasep//prompt_cot \
         --data_kwargs "$data_kwargs" \
         --trust_remote_code \
         --api_base $API_BASE \
