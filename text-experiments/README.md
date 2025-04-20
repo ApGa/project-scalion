@@ -1,22 +1,17 @@
+# project-scalion
 
-# Baseline Data
-bash scripts/eval.sh \
+## Text Experiments
+
+# DPO Pipeline
+
+To train a full pipeline that involves naive paraphrasing, scoring and preference data generation.
+
+`bash scripts/baseline_pipeline.sh $TASK $PARAPHASER_MODEL $EVALUATOR_MODEL $TRAINED_MODEL_PATH`
+
+```
+bash scripts/baseline_pipeline.sh \
+    gsm_symbolic \
+    Qwen/Qwen2.5-3B-Instruct \
     Qwen/Qwen2.5-7B-Instruct \
-    gsm_symbolicp//prompt_cot \
-    http://babel-6-9:8084/v1 \
-    "--include_path tasks/ --n_samples 100 --output_path output/"
-
-# Generate Paraphrased Data
-bash scripts/eval.sh \
-    Qwen/Qwen2.5-7B-Instruct \
-    gsm_symbolic_generate_paraphrase_3 \
-    http://babel-6-9:8084/v1 \
-    "--include_path tasks/ --n_samples 100 --output_path tasks/data/ --run_name gsm_symbolic_3"
-
-# Evaluate on Paraphrased Data
-bash scripts/eval.sh \
-    Qwen/Qwen2.5-7B-Instruct \
-    gsm_symbolic_paraphrasedp//prompt_cot \
-    http://localhost:8000/v1 \
-    "--include_path tasks/ --n_samples 100 --output_path output/"
-
+    ${OUTPUT_PATH}$/dpo-qwen2.5-3b-from-qwen2.5-7b/
+```
