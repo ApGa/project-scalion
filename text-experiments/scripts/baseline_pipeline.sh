@@ -82,7 +82,7 @@ do
             --task test_${TASK}t//generate_paraphrase_${NUM} \
             --sample_args "n=1" \
             --run_name ${TASK}_${NUM} \
-            --output_path tasks/data/paraphrased_test/${P_MODEL}/ \
+            --output_path tasks/data/paraphrased_test/${TASK}/${P_MODEL}/ \
             --include_path tasks/
     done
 
@@ -102,7 +102,7 @@ do
                 --model $E_MODEL \
                 --task score_paraphrasep//reason${NUM}${VARIANT} \
                 --include_path tasks/ \
-                --data_kwargs "{'data_files': 'tasks/data/paraphrased_test/${P_MODEL}/${RUN_NAME}/output.jsonl'}" \
+                --data_kwargs "{'data_files': 'tasks/data/paraphrased_test/${TASK}/${P_MODEL}/${RUN_NAME}/output.jsonl'}" \
                 --run_name $E_MODEL:${RUN_NAME}:${NUM}:${VARIANT} \
                 --output_path data/runs/${P_MODEL}/ 
             done
