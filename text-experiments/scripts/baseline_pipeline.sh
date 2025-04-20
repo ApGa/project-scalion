@@ -33,7 +33,7 @@ do
         yeval \
             --model $P_MODEL \
             --task ${TASK}t//generate_paraphrase_${NUM} \
-            --n_samples 10 \
+            --n_samples 250 \
             --run_name ${RUN_NAME} \
             --output_path tasks/data/paraphrased_train/${TASK}/${P_MODEL}/ \
             --include_path tasks/
