@@ -45,6 +45,7 @@ for i in $(seq 1 $MAX_ITERATIONS); do
     # paraphrase questions
     data_kwarg_dict_string='"data_files": {"test": "'$save_filepath'"}'
     data_kwargs="{$data_kwarg_dict_string}"
+    output_path=$OUTPUT_PATH/$i/paraphrase_questions
     echo $data_kwargs
     yeval \
         --model $MODEL \
@@ -52,13 +53,16 @@ for i in $(seq 1 $MAX_ITERATIONS); do
         --data_kwargs $data_kwargs \
         --trust_remote_code \
         --api_base $API_BASE \
-        --output_path $OUTPUT_PATH/$i/paraphrase_questions \
+        --output_path $output_path \
         --include_path tasks/
 
     # then evaluate the paraphrased questions
+    data_kwarg_dict_string='"data_files": {"test": "'$output_path/output.jsonl'"}'
+    data_kwargs="{$data_kwarg_dict_string}"
     yeval \
         --model $MODEL \
-        --task gsm_symbolic_paraphrased_with_feedbackp//prompt_cot \
+        --task score_paraphrase//prompt_cot \
+        --data_kwargs $data_kwargs \
         --trust_remote_code \
         --api_base $API_BASE \
         --output_path $OUTPUT_PATH/$i \
