@@ -2,6 +2,7 @@
 Script to filter examples that the solver LM gets incorrect
 and create data to feed to the paraphrasing model
 """
+import argparse
 import json
 import pandas as pd
 import sys

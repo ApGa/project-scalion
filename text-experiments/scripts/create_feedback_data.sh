@@ -9,6 +9,10 @@
 
 # Currently written for GSM Symbolic
 
+set -a 
+source scripts/configs/.env
+set +a
+
 source ${MINICONDA_PATH}
 conda init bash
 conda activate ${ENV_NAME}
@@ -19,32 +23,33 @@ API_BASE=$3
 OUTPUT_PATH=$4
 
 # first evaluate on original questions
-yeval \
-    --model $MODEL \
-    --task gsm_symbolicp//prompt_cot \
-    --trust_remote_code \
-    --api_base $API_BASE \
-    --output_path $OUTPUT_PATH/0 \
-    --include_path tasks/
+# yeval \
+#     --model $MODEL \
+#     --task gsm_symbolicp//prompt_cot \
+#     --trust_remote_code \
+#     --api_base $API_BASE \
+#     --output_path $OUTPUT_PATH/0 \
+#     --include_path tasks/
 
 mkdir -p $OUTPUT_PATH/paraphrase_input_data
 mkdir -p $OUTPUT_PATH/paraphrase_questions
 for i in $(seq 1 $MAX_ITERATIONS); do
     model_output_path=$OUTPUT_PATH/${i-1}/output.jsonl
+    save_filepath=$OUTPUT_PATH/paraphrase_input_data/$i.jsonl
     # filter and create inputs for paraphrase model
     python feedback_data.py \
         --model_output_filepath $model_output_path \
-        --save_filepath $OUTPUT_PATH/paraphrase_input_data/$i.jsonl
+        --save_filepath $save_filepath
 
     # if no incorrect answers, exit
     exit_code=$?
     if [ $exit_code -eq 2 ]; then
         echo "No incorrect answers, exiting."
         break
+    fi
 
     # paraphrase questions
-    data_kwarg_dict_string='"data_files": {"test": "'$save_filepath'"}'
-    data_kwargs="{$data_kwarg_dict_string}"
+    data_kwargs="{'data_files': '$save_filepath'}"
     output_path=$OUTPUT_PATH/$i/paraphrase_questions
     echo $data_kwargs
     yeval \
@@ -57,8 +62,7 @@ for i in $(seq 1 $MAX_ITERATIONS); do
         --include_path tasks/
 
     # then evaluate the paraphrased questions
-    data_kwarg_dict_string='"data_files": {"test": "'$output_path/output.jsonl'"}'
-    data_kwargs="{$data_kwarg_dict_string}"
+    data_kwargs="{'data_files': '$output_path/output.jsonl'}"
     yeval \
         --model $MODEL \
         --task score_paraphrase//prompt_cot \
