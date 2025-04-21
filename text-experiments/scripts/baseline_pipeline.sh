@@ -27,43 +27,43 @@ PORT=4512
 for I in 1
 do
 
-    # # 1. Generate Paraphrased data by model p1
-    # vllm serve $P_MODEL --port ${PORT} --max_model_len 2048 > ${TMP_DIR}o.txt &
-    # # for NUM in {1..4}
-    # for NUM in {1..2}
-    # do
-    #     RUN_NAME=${TASK}_${NUM}
-    #     yeval \
-    #         --model $P_MODEL \
-    #         --task ${TASK}t//generate_paraphrase_${NUM} \
-    #         --n_samples 500 \
-    #         --api_base "http://localhost:${PORT}/v1" \
-    #         --run_name ${RUN_NAME} \
-    #         --output_path tasks/data/paraphrased_train/${TASK}/${P_MODEL}/ \
-    #         --include_path tasks/
-    # done
+    # 1. Generate Paraphrased data by model p1
+    vllm serve $P_MODEL --port ${PORT} --max_model_len 2048 > ${TMP_DIR}o.txt &
+    # for NUM in {1..4}
+    for NUM in {1..2}
+    do
+        RUN_NAME=${TASK}_${NUM}
+        yeval \
+            --model $P_MODEL \
+            --task ${TASK}t//generate_paraphrase_${NUM} \
+            --n_samples 500 \
+            --api_base "http://localhost:${PORT}/v1" \
+            --run_name ${RUN_NAME} \
+            --output_path tasks/data/paraphrased_train/${TASK}/${P_MODEL}/ \
+            --include_path tasks/
+    done
 
-    # pkill vllm
-    # sleep 120
+    pkill vllm
+    sleep 120
 
-    # # 2. Evaluate how well the paraphrased data by e1,..eN
-    # vllm serve $E_MODEL --port ${PORT} --max_model_len 2048 > ${TMP_DIR}o.txt &
-    # # for NUM in {1..4}
-    # for NUM in {1..2}
-    # do
-    #     RUN_NAME=${TASK}_${NUM}
-    #     yeval \
-    #         --model $E_MODEL \
-    #         --task score_paraphrase \
-    #         --include_path tasks/ \
-    #         --data_kwargs "{'data_files': 'tasks/data/paraphrased_train/${TASK}/${P_MODEL}/${RUN_NAME}/output.jsonl'}" \
-    #         --api_base "http://localhost:${PORT}/v1" \
-    #         --run_name ${RUN_NAME} \
-    #         --output_path data/raw/${TASK}/${E_MODEL}
-    # done
+    # 2. Evaluate how well the paraphrased data by e1,..eN
+    vllm serve $E_MODEL --port ${PORT} --max_model_len 2048 > ${TMP_DIR}o.txt &
+    # for NUM in {1..4}
+    for NUM in {1..2}
+    do
+        RUN_NAME=${TASK}_${NUM}
+        yeval \
+            --model $E_MODEL \
+            --task score_paraphrase \
+            --include_path tasks/ \
+            --data_kwargs "{'data_files': 'tasks/data/paraphrased_train/${TASK}/${P_MODEL}/${RUN_NAME}/output.jsonl'}" \
+            --api_base "http://localhost:${PORT}/v1" \
+            --run_name ${RUN_NAME} \
+            --output_path data/raw/${TASK}/${E_MODEL}
+    done
 
-    # pkill vllm
-    # sleep 120
+    pkill vllm
+    sleep 120
 
     # 3. Generate preference data
     python scripts/generate_preference_dataset.py \
