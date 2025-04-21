@@ -173,3 +173,14 @@ class ScoreParaphraseTask(YevalTask):
     postprocessor=get_boxed_answer
     input_text=lambda x: x["input"]
     output_text=lambda x: x["output"]
+    evaluation={"accuracy": math_eval}
+
+@register_task("gsm_symbolic_paraphrased_with_feedback")
+class GSM8KParaphrase1Task(GSM8KSymbolicTask):
+    user_message="Let's reason step by step and and then write the final answer within \\boxed{}."
+    data_path="json"
+    test_split="test"
+    preprocessing=spread
+    postprocessor=get_boxed_answer
+    input_text=lambda x: x["input"]
+    output_text=lambda x: x["output"]
