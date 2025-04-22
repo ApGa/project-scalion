@@ -124,15 +124,15 @@ class GSM8KParaphraseGenerateWithFeedback(YevalTask):
     data_path="json"
     # data_kwargs={"data_dir": os.path.join(dir_path, f"data/gsm_symbolic/main/")}
     input_text=lambda x: x["input"]
-    output_text=lambda x: x["answer"]
+    output_text=lambda x: x["ground_truth"]
     test_split="train"
-    evaluation={"accuracy": lambda x, y: x == y}
+    evaluation={"accuracy": math_eval}
     system_message="""You are a helpful question rewriting model. \
 Your job is to paraphrase or reformat the question in a way that makes it easier for a solver to answer the question. \
 """
     preprocessing=lambda x: partial(shuffle, seed=1001)(x)
     sampling_args={
-        "n": 10,
+        "n": 5,
         "temperature": 1.0,
         "extra_body":{"guided_regex": "Paraphrase:.*"}
         }
@@ -162,14 +162,13 @@ def spread(dataset):
         dataset[key] = dataset[key].map(_spread, batched=True, remove_columns=dataset[key].column_names)
     return dataset
 
-MODEL="Qwen/Qwen2.5-3B-Instruct"
-
 @register_task("score_paraphrase")
 class ScoreParaphraseTask(YevalTask):
     user_message="Let's reason step by step and and then write the final answer within \\boxed{}."
     data_path="json"
     test_split="train"
     preprocessing=spread
-    postprocessor=get_boxed_answer
+    postprocessor=extract_boxed_fn
     input_text=lambda x: x["input"]
     output_text=lambda x: x["output"]
+    evaluations={"accuracy": math_eval}
