@@ -30,11 +30,11 @@ deepspeed --module openrlhf.cli.train_dpo \
     --logging_steps 1 \
     --eval_steps -1 \
     --train_batch_size 64 \
-    --micro_train_batch_size 4 \
+    --micro_train_batch_size 32 \
     --pretrain ${MODEL_PATH} \
     --save_hf_ckpt \
     --bf16 \
-    --max_samples 12800 \
+    --max_samples 6400 \
     --max_epochs 1 \
     --max_len 2048 \
     --zero_stage 3 \
