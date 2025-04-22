@@ -33,7 +33,7 @@ Rephrase the question to make the problem easier to solve. Do not include the an
     feedback_data["idx"] = incorrect["idx"]
     feedback_data["orig_question"] = incorrect["step"].apply(lambda x: extract_question(x))
     feedback_data["answer"] = incorrect["answer"]
-    feedback_data["ground_truth"] = incorrect["ground_truth"]
+    feedback_data["ground_truth"] = [x for x in incorrect["ground_truth"].values]
     feedback_data["input"] = feedback_data.apply(lambda x: format_input_text(x), axis=1)
     return feedback_data
 

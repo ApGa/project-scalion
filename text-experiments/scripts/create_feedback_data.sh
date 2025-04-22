@@ -23,15 +23,16 @@ API_BASE=$3
 OUTPUT_PATH=$4
 RUN_NAME=$5
 
+mkdir -p ${OUTPUT_PATH}/paraphrase_input_data
 # first evaluate on original questions
-yeval \
-    --model $MODEL \
-    --task gsm_symbolicp//prompt_cot \
-    --trust_remote_code \
-    --api_base $API_BASE \
-    --output_path $OUTPUT_PATH/0 \
-    --include_path tasks/ \
-    --run_name $RUN_NAME
+# yeval \
+#     --model $MODEL \
+#     --task gsm_symbolicp//prompt_cot \
+#     --trust_remote_code \
+#     --api_base $API_BASE \
+#     --output_path $OUTPUT_PATH/0 \
+#     --include_path tasks/ \
+#     --run_name $RUN_NAME
 
 for i in $(seq 1 $MAX_ITERATIONS); do
     model_output_path=$OUTPUT_PATH/$((i-1))/$RUN_NAME/output.jsonl

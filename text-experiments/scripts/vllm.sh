@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=vllm
-#SBATCH --output=text-experiments/slurm-out/vllm/host-%j.out
+#SBATCH --output=slurm-out/vllm/host-%j.out
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:L40S:2
 #SBATCH --mem=48GB
@@ -66,7 +66,7 @@ echo "Tensor parallel size: $tensor_parallel_size"
 echo "GPU memory utilization: $gpu_memory_utilization"
 
 set -a 
-source text-experiments/scripts/configs/.env
+source scripts/configs/.env
 set +a
 
 source ${MINICONDA_PATH}
