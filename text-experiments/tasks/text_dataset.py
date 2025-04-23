@@ -163,6 +163,26 @@ Your job is to paraphrase or reformat the question in a way that makes it easier
         "extra_body":{"guided_regex": "Paraphrase:.*"}
         }
 
+@register_task("generate_paraphrase_with_feedback_history")
+class GSM8KParaphraseGenerateWithFeedback(YevalTask):
+    data_path="json"
+    # data_kwargs={"data_dir": os.path.join(dir_path, f"data/gsm_symbolic/main/")}
+    input_text=lambda x: x["input"]
+    output_text=lambda x: x["ground_truth"]
+    test_split="train"
+    evaluation={"accuracy": math_eval}
+    system_message="""You are a helpful question rewriting model. \
+Given the original question, your job is to paraphrase or reformat the question in a way that makes it easier for a solver to answer the question. \
+If provided with additional failed paraphrases where the solver was unable to answer the question, paraphrase the orignal question in a way that is different from the failed paraphrases. \
+Do not include the answer in your response.\n
+"""
+    preprocessing=lambda x: partial(shuffle, seed=1001)(x)
+    sampling_args={
+        "n": 1,
+        "temperature": 1.0,
+        "extra_body":{"guided_regex": "Paraphrase:.*"}
+        }
+
 def spread(dataset):
 
     def _spread(examples):

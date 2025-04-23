@@ -20,3 +20,10 @@ bash scripts/eval.sh \
     http://localhost:8000/v1 \
     "--include_path tasks/ --n_samples 100 --output_path output/"
 
+# Generate Paraphrase Data with Feedback+History
+sbatch scripts/create_feedback_data.sh \
+    5 \
+    gsm_plus \
+    Qwen/Qwen2.5-3B-Instruct \
+    http://babel-12-13:8084/v1 \
+    output/feedback-with-history 
