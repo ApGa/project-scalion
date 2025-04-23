@@ -49,6 +49,32 @@ class CotAnswerPrompt(YevalPrompt):
     user_message="Reason step by step and put your final answer after \"Answer:\"."
     postprocessor=extract_fn
 
+@register_task("gsm_plus")
+class GSMPLUSTask(YevalTask):
+    data_path="qintongli/GSM-Plus"
+    input_text=lambda x: x["question"]
+    output_text=lambda x: x["answer"]
+    preprocessing=lambda dataset: dataset.filter(lambda example: example["perturbation_type"] == "distraction insertion")
+    test_split="test"
+    evaluation={"accuracy": math_eval}
+
+@register_task("test_gsm_plus")
+class GSMPLUSTestTask(GSMPLUSTask):
+    test_split="testmini"
+
+@register_task("gsm_ic")
+class GSMICTask(YevalTask):
+    data_path="json"
+    data_kwargs={"data_dir": os.path.join(dir_path, f"data/gsm_ic/")}
+    input_text=lambda x: x["new_question"]
+    output_text=lambda x: x["answer"]
+    test_split="train"
+    evaluation={"accuracy": math_eval}
+
+@register_task("test_gsm_ic")
+class GSMICTestTask(GSMICTask):
+    test_split="test"
+
 @register_task("gsm_symbolic")
 class GSM8KSymbolicTask(YevalTask):
     data_path="json"
@@ -88,6 +114,7 @@ class GSM8KParaphraseGenerate1(GSM8KSymbolicTask):
 Paraphrase or reformat the question in a way that makes it easier to answer. \
 DO NOT provide the answer.\
 """
+    # user_message=lambda x: f"{x}\nLet's paraphrase this\n"
     preprocessing=lambda x: partial(shuffle, seed=1001)(x)
     sampling_args={
         "n": 10,
