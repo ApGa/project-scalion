@@ -149,7 +149,7 @@ def spread(dataset):
             all_idx.extend([idx] * len(answer))
             all_sample_id.extend([sample_id] * len(answer))
             all_sentence.extend(answer)
-            all_ground_truth.extend([ground_truth] * len(answer))
+            all_ground_truth.extend([str(ground_truth)] * len(answer))
 
         return {
             "idx": all_idx,
@@ -171,4 +171,4 @@ class ScoreParaphraseTask(YevalTask):
     postprocessor=extract_boxed_fn
     input_text=lambda x: x["input"]
     output_text=lambda x: x["output"]
-    evaluations={"accuracy": math_eval}
+    evaluation={"accuracy": math_eval}
