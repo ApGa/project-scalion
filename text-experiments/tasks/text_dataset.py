@@ -13,7 +13,6 @@ from yeval.response import extract_answer, get_boxed_answer
 from yeval.metrics import math_eval
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-MODEL = "Qwen/Qwen2.5-3B-Instruct"
 
 def extract_fn(answer: str):
     try:
@@ -109,23 +108,23 @@ def shuffle(dataset, seed=0):
     return shuffled_dataset.flatten_indices()
 
 @register_task("generate_paraphrase_1")
-class GSM8KParaphraseGenerate1(GSM8KSymbolicTask):
+class GSM8KParaphraseGenerate1(YevalTask):
     system_message="""You are a helpful paraphrasing model. \
-Paraphrase or reformat the question in a way that makes it easier to answer. \
+Rewrite the question to make it as concise as possible. Remove unhelpful information. \
 DO NOT provide the answer.\
 """
-    # user_message=lambda x: f"{x}\nLet's paraphrase this\n"
+    user_message=lambda x: f"{x}\nLet's paraphrase this\n"
     preprocessing=lambda x: partial(shuffle, seed=1001)(x)
     sampling_args={
         "n": 10,
         "temperature": 1.0,
-        "extra_body":{"guided_regex": "Paraphrase:.*"}
+        # "extra_body":{"guided_regex": "Paraphrase:.*"}
         }
     
 @register_task("generate_paraphrase_2")
 class GSM8KParaphraseGenerate2(GSM8KParaphraseGenerate1):
     system_message="""You are a helpful rewriting model. \
-Rewrite the question to make it easier to answer correctly. This rewrite can be a paraphrase or a formatting change. \
+Let's rewrite this so that's it easier for people to answer. \
 DO NOT provide the answer.\
 """
     preprocessing=lambda x: partial(shuffle, seed=1002)(x)
@@ -133,7 +132,7 @@ DO NOT provide the answer.\
 @register_task("generate_paraphrase_3")
 class GSM8KParaphraseGenerate3(GSM8KParaphraseGenerate1):
     system_message="""You are a helpful reformatting model. \
-Format the question in a way that makes it easiest to answer correctly. Only include the necessary information to answer the question correctly. \
+Rewrite this so that it's as short as possible. \
 DO NOT provide the answer.\
 """
     preprocessing=lambda x: partial(shuffle, seed=1003)(x)
@@ -180,7 +179,7 @@ def spread(dataset):
 
         return {
             "idx": all_idx,
-            "sample_id": all_sample_id,
+            "ori_sample_id": all_sample_id,
             "input": all_sentence,
             "output": all_ground_truth,
             }
@@ -195,7 +194,8 @@ class ScoreParaphraseTask(YevalTask):
     data_path="json"
     test_split="train"
     preprocessing=spread
-    postprocessor=extract_boxed_fn
+    postprocessor=get_boxed_answer
     input_text=lambda x: x["input"]
     output_text=lambda x: x["output"]
     evaluation={"accuracy": math_eval}
+    aux_keys=["ori_sample_id"]
