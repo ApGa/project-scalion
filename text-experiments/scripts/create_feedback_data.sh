@@ -42,7 +42,6 @@ for i in $(seq 1 $MAX_ITERATIONS); do
         python scripts/feedback_data.py \
         --model_output_filepath $model_output_path \
         --save_filepath $save_filepath
-    fi
     else
         python scripts/feedback_data.py \
         --model_output_filepath $model_output_path \
