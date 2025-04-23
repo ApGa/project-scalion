@@ -21,20 +21,22 @@ MODEL=$3
 API_BASE=$4
 OUTPUT_PATH=$5
 RUN_NAME=$MODEL-$TASK
+RUN_NAME="${RUN_NAME//\//-}"
 
 mkdir -p ${OUTPUT_PATH}/paraphrase_input_data
 # first evaluate on original questions
-yeval \
-    --model $MODEL \
-    --task ${TASK}p//prompt_cot \
-    --trust_remote_code \
-    --api_base $API_BASE \
-    --output_path $OUTPUT_PATH/0 \
-    --include_path tasks/ \
-    --run_name $RUN_NAME
+# yeval \
+#     --model $MODEL \
+#     --task ${TASK}p//prompt_cot \
+#     --trust_remote_code \
+#     --api_base $API_BASE \
+#     --output_path $OUTPUT_PATH/0 \
+#     --include_path tasks/ \
+#     --run_name $RUN_NAME
 
 for i in $(seq 1 $MAX_ITERATIONS); do
     model_output_path=$OUTPUT_PATH/$((i-1))/$RUN_NAME/output.jsonl
+    echo "Model output path: $model_output_path"
     save_filepath=$OUTPUT_PATH/paraphrase_input_data/$i.jsonl
     # filter and create inputs for paraphrase model
     if [ i==1 ]; then
@@ -54,6 +56,9 @@ for i in $(seq 1 $MAX_ITERATIONS); do
     if [ $exit_code -eq 2 ]; then
         echo "No incorrect answers, exiting."
         break
+    elif [ $exit_code != 0 ]; then
+        echo "Error in feedback data creation, exiting."
+        exit 1
     fi
 
     # paraphrase questions
