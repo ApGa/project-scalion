@@ -41,11 +41,11 @@ def process_response(response):
             if score_2 == 1:
                 continue
             question_list.append([
-                {"role":"system", "content": "Paraphrase the following question."},
-                {"role":"user", "content":input_text}
+                {"role":"system", "content": "Rewrite the question to make it as concise as possible. Remove unhelpful information. DO NOT provide the answer."},
+                {"role":"user", "content": input_text}
                 ])
-            response_i_list.append([{"role": "assistant", "content":response_1}])
-            response_j_list.append([{"role": "assistant", "content":response_2}])
+            response_i_list.append([{"role": "assistant", "content":"Paraphrase: "+response_1}])
+            response_j_list.append([{"role": "assistant", "content":"Paraphrase: "+response_2}])
             gt_list.append(ground_truth)
 
     return question_list, response_i_list, response_j_list, gt_list
@@ -73,45 +73,21 @@ if __name__ == "__main__":
     for prompt in prompt_list:
 
         responses = load_dataset("json", data_files=os.path.join(args.input_path, prompt, "output.jsonl"))['train']
-        source_dataset = load_dataset("json", data_files=os.path.join(args.source_path, prompt, "output.jsonl"))["train"]
 
-        for i in range(len(source_dataset)):
-            original_query = source_dataset[i]['step'][0]['full_input'][-1]['content']
-            paraphrased_list = [line.split("Paraphrase:")[-1].strip() for line in source_dataset[i]['answer']]
-
-            for j in range(10):
-                sample_id = 10*i+j
-                line = responses[sample_id]
-                res = line['step'][0]['full_input'][0]['content'].split("\\boxed{}.")[-1].strip()
-                if res in paraphrased_list:
-                    if original_query in collected_responses:
-                        collected_responses[original_query]["response"].append(res)
-                        collected_responses[original_query]["score"].append(line["accuracy"])
-                    else:
-                        collected_responses[original_query] = {
-                            "user_input": original_query,
-                            "response": [res],
-                            "ground_truth": line["ground_truth"],
-                            "score": [line["accuracy"]],
-                        }
-        # # source_dataset[0]["full_input"]
-        # sample_id = 0
-        # for i in range(0, len(responses), 10):
-        #     print(responses[i:i+10])
-        #     for line in [dict(zip(responses.column_names, values)) for values in responses[i:i+10]]:
-        #         print(line)
-        #         if sample_id in collected_responses:
-        #             collected_responses[sample_id]["response"].extend(
-        #                 line['step'][0]['completion']
-        #             )
-        #         else:
-        #             collected_responses[sample_id] = {
-        #                 "user_input": source_dataset[sample_id]['question'],
-        #                 "ground_truth": line["ground_truth"],
-        #                 "response": line['step'][0]['full_input'][-1]['content'],
-        #                 "score": line["accuracy"],
-        #             }
-        #     sample_id += 1
+        for line in responses:
+            original_query = line["step"][0]["aux"]["original_string"]
+            res = line['step'][0]['full_input'][0]['content'].split("\\boxed{}.")[-1].strip()
+                
+            if original_query in collected_responses:
+                collected_responses[original_query]["response"].append(res)
+                collected_responses[original_query]["score"].append(line["accuracy"])
+            else:
+                collected_responses[original_query] = {
+                    "user_input": original_query,
+                    "response": [res],
+                    "ground_truth": line["ground_truth"],
+                    "score": [line["accuracy"]],
+                }
 
     result_list = list(tqdm(map(process_response, [response for _, response in collected_responses.items()]), total=len(collected_responses)))
     result_list = [result for result in result_list if len(result[0]) != 0]
@@ -135,8 +111,3 @@ if __name__ == "__main__":
                 break
             line = {"ground_truth": g, "question": q, "response_i": i, "response_j": j}
             writer.write(line)
-
-    #df = pd.DataFrame(data)
-    #df = df.sample(frac=1).reset_index(drop=True)
-    #df.to_csv(os.path.join(args.output_path, "data.csv"), index=False)
-
