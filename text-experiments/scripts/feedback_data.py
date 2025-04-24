@@ -48,13 +48,18 @@ def create_input_text_with_feedback(
         return None
     if prev_paraphrase_questions is not None:
         prev_model_paraphrase_df = pd.read_json(prev_paraphrase_questions, lines=True)
+        prev_model_paraphrase_df["index"] = [x for x in range(len(prev_model_paraphrase_df))]
+        print(len(prev_model_paraphrase_df))
+        prev_model_paraphrase_df = prev_model_paraphrase_df[prev_model_paraphrase_df["index"].isin(incorrect["sample_id"])]
+        print(len(prev_model_paraphrase_df))
         prev_model_paraphrase_df["sample_id"] = prev_model_paraphrase_df["idx"]
-        assert len(incorrect["sample_id"]) == len(prev_model_paraphrase_df["sample_id"]), f"{incorrect['sample_id'].to_list()}\n{prev_model_paraphrase_df['sample_id'].to_list()}"
         incorrect["sample_id"] = prev_model_paraphrase_df["sample_id"]
+        assert len(incorrect["sample_id"]) == len(prev_model_paraphrase_df["sample_id"]), f"{len(incorrect['sample_id'])} != {len(prev_model_paraphrase_df['sample_id'])}"
     else:
         prev_model_paraphrase_df = None
     feedback_data = pd.DataFrame()
     feedback_data["idx"] = incorrect["idx"]
+    feedback_data["sample_id"] = incorrect["sample_id"]
     feedback_data["orig_question"] = incorrect["step"].apply(lambda x: extract_prev_question(x))
     feedback_data["answer"] = [x for x in incorrect["answer"].values]
     feedback_data["ground_truth"] = [x for x in incorrect["ground_truth"].values]
