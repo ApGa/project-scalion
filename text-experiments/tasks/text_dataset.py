@@ -1,3 +1,4 @@
+import time
 import os
 import re
 from functools import partial
@@ -37,6 +38,10 @@ def extract_boxed_fn(answer: str):
             return extracted_answer
     except Exception as e:
         return answer
+
+def shuffle(dataset, seed=0):
+    shuffled_dataset = dataset.shuffle(seed=seed)
+    return shuffled_dataset.flatten_indices()
 
 @register_prompt("prompt_cot")
 class CotPrompt(YevalPrompt):
@@ -103,39 +108,54 @@ class GSM8KSymbolicP1TestTask(GSM8KSymbolicP1Task):
 class GSM8KSymbolicP2TestTask(GSM8KSymbolicP2Task):
     test_split="test"
 
-def shuffle(dataset, seed=0):
-    shuffled_dataset = dataset.shuffle(seed=seed)
-    return shuffled_dataset.flatten_indices()
-
-@register_task("generate_paraphrase_1")
+@register_task("generate_paraphrase")
 class GSM8KParaphraseGenerate1(YevalTask):
-    system_message="""You are a helpful paraphrasing model. \
+    system_message="""\
 Rewrite the question to make it as concise as possible. Remove unhelpful information. \
 DO NOT provide the answer.\
 """
-    user_message=lambda x: f"{x}\nLet's paraphrase this\n"
-    preprocessing=lambda x: partial(shuffle, seed=1001)(x)
+    # user_message=lambda x: f"{x}\nLet's paraphrase this\n"
     sampling_args={
-        "n": 10,
+        "n": 1,
+        "temperature": 0.0,
+        "stop": ["\n\n"],
+        "extra_body":{"guided_regex": "Paraphrase:.*"}
+        }
+
+@register_task("generate_paraphrase_1")
+class GSM8KParaphraseGenerate1(GSMPLUSTask):
+    system_message="""\
+Rewrite the question to make it as concise as possible. Remove unhelpful information. \
+DO NOT provide the answer.\
+"""
+    # user_message=lambda x: f"{x}\nLet's paraphrase this\n"
+    preprocessing=lambda dataset: partial(shuffle, seed=int(str(time.time()).split(".")[-1]))(dataset.filter(lambda example: example["perturbation_type"] == "distraction insertion"))
+    # preprocessing=lambda x: partial(shuffle, seed=1000)(x)
+    data_kwargs={"keep_in_memory": True}
+    sampling_args={
+        "n": 4,
         "temperature": 1.0,
-        # "extra_body":{"guided_regex": "Paraphrase:.*"}
+        "stop": ["\n\n"],
+        "extra_body":{"guided_regex": "Paraphrase:.*"}
         }
     
 @register_task("generate_paraphrase_2")
 class GSM8KParaphraseGenerate2(GSM8KParaphraseGenerate1):
-    system_message="""You are a helpful rewriting model. \
-Let's rewrite this so that's it easier for people to answer. \
+    system_message="""\
+Rewrite this so that it's as short as possible. Remove sentences that are irrelevant to the question. \
 DO NOT provide the answer.\
 """
-    preprocessing=lambda x: partial(shuffle, seed=1002)(x)
+    # preprocessing=lambda x: partial(shuffle, seed=2000)(x)
+    preprocessing=lambda dataset: partial(shuffle, seed=int(str(time.time()).split(".")[-1]))(dataset.filter(lambda example: example["perturbation_type"] == "distraction insertion"))
     
 @register_task("generate_paraphrase_3")
 class GSM8KParaphraseGenerate3(GSM8KParaphraseGenerate1):
-    system_message="""You are a helpful reformatting model. \
-Rewrite this so that it's as short as possible. \
+    system_message="""\
+Rewrite the question as concisely as possible. Only include information required to answer the question accurately. \
 DO NOT provide the answer.\
 """
-    preprocessing=lambda x: partial(shuffle, seed=1003)(x)
+    # preprocessing=lambda x: partial(shuffle, seed=3000)(x)
+    preprocessing=lambda dataset: partial(shuffle, seed=int(str(time.time()).split(".")[-1]))(dataset.filter(lambda example: example["perturbation_type"] == "distraction insertion"))
     
 @register_task("generate_paraphrase_4")
 class GSM8KParaphraseGenerate3(GSM8KParaphraseGenerate1):
@@ -143,7 +163,7 @@ class GSM8KParaphraseGenerate3(GSM8KParaphraseGenerate1):
 Rewrite the question as concisely as possible. Only include information required to answer the question accurately. \
 DO NOT provide the answer.\
 """
-    preprocessing=lambda x: partial(shuffle, seed=1004)(x)
+    # preprocessing=lambda x: partial(shuffle, seed=1004)(x)
 
 @register_task("generate_paraphrase_with_feedback")
 class GSM8KParaphraseGenerateWithFeedback(YevalTask):
@@ -190,16 +210,25 @@ def spread(dataset):
         all_sample_id = []
         all_sentence = []
         all_ground_truth = []
-        for idx, (sample_id, answer, ground_truth) in enumerate(zip(examples["sample_id"], examples["answer"], examples["ground_truth"])):
+        all_original_string = []
+        for idx, (sample_id, answer, ground_truth, original_string) in enumerate(
+            zip(
+                examples["sample_id"],
+                examples["answer"],
+                examples["ground_truth"],
+                examples["step"],
+                )
+        ):
             answer = [ans.split("Paraphrase:")[-1].strip() for ans in answer]
             all_idx.extend([idx] * len(answer))
             all_sample_id.extend([sample_id] * len(answer))
             all_sentence.extend(answer)
             all_ground_truth.extend([str(ground_truth)] * len(answer))
+            all_original_string.extend([original_string[0]["full_input"][-1]["content"]] * len(answer))
 
         return {
             "idx": all_idx,
-            "ori_sample_id": all_sample_id,
+            "original_string": all_original_string,
             "input": all_sentence,
             "output": all_ground_truth,
             }
@@ -218,4 +247,4 @@ class ScoreParaphraseTask(YevalTask):
     input_text=lambda x: x["input"]
     output_text=lambda x: x["output"]
     evaluation={"accuracy": math_eval}
-    aux_keys=["ori_sample_id"]
+    aux_keys=["original_string"]
