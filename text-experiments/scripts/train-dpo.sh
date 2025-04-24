@@ -3,7 +3,7 @@
 #SBATCH --output=/home/lsutawik/dpo-%j.out
 #SBATCH --error=/home/lsutawik/dpo-%j.out
 #SBATCH --partition=general
-#SBATCH --gres=gpu:A100_40GB:4
+#SBATCH --gres=gpu:A100_40GB:2
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --time=2-00:00:00
@@ -30,7 +30,7 @@ deepspeed --module openrlhf.cli.train_dpo \
     --logging_steps 1 \
     --eval_steps -1 \
     --train_batch_size 64 \
-    --micro_train_batch_size 32 \
+    --micro_train_batch_size 16 \
     --pretrain ${MODEL_PATH} \
     --save_hf_ckpt \
     --bf16 \
@@ -39,7 +39,7 @@ deepspeed --module openrlhf.cli.train_dpo \
     --max_len 2048 \
     --zero_stage 3 \
     --ref_offload \
-    --learning_rate 3e-7 \
+    --learning_rate 3e-6 \
     --l2 0.05 \
     --beta 0.05 \
     --dataset json@${DATA_PATH} \
