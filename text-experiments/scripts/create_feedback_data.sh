@@ -17,19 +17,21 @@ conda activate ${ENV_NAME}
 
 MAX_ITERATIONS=$1
 TASK=$2
-MODEL=$3
-API_BASE=$4
-OUTPUT_PATH=$5
-RUN_NAME=$MODEL-$TASK
+PARA_MODEL=$3
+PARA_API_BASE=$4
+SOLVER_MODEL=$5
+SOLVER_API_BASE=$6
+OUTPUT_PATH=$7
+RUN_NAME=$TASK-$SOLVER_MODEL-$PARA_MODEL
 RUN_NAME="${RUN_NAME//\//-}"
 
 mkdir -p ${OUTPUT_PATH}/paraphrase_input_data
 # first evaluate on original questions
 yeval \
-    --model $MODEL \
+    --model $SOLVER_MODEL \
     --task ${TASK}p//prompt_cot \
     --trust_remote_code \
-    --api_base $API_BASE \
+    --api_base $SOLVER_API_BASE \
     --output_path $OUTPUT_PATH/0 \
     --include_path tasks/ \
     --run_name $RUN_NAME
@@ -67,11 +69,11 @@ for i in $(seq 1 $MAX_ITERATIONS); do
     output_path=$OUTPUT_PATH/$i/paraphrase_questions
     echo $data_kwargs
     yeval \
-        --model $MODEL \
+        --model $PARA_MODEL \
         --task generate_paraphrase_with_feedback_history \
         --data_kwargs "$data_kwargs" \
         --trust_remote_code \
-        --api_base $API_BASE \
+        --api_base $PARA_API_BASE \
         --output_path $output_path \
         --include_path tasks/ \
         --run_name $RUN_NAME
@@ -80,11 +82,11 @@ for i in $(seq 1 $MAX_ITERATIONS); do
     # then evaluate the paraphrased questions    
     data_kwargs='{"data_files": "'$paraphrase_questions'"}'
     yeval \
-        --model $MODEL \
+        --model $SOLVER_MODEL \
         --task score_paraphrasep//prompt_cot \
         --data_kwargs "$data_kwargs" \
         --trust_remote_code \
-        --api_base $API_BASE \
+        --api_base $SOLVER_API_BASE \
         --output_path $OUTPUT_PATH/$i \
         --include_path tasks/ \
         --run_name $RUN_NAME

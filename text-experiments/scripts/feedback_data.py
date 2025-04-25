@@ -24,13 +24,11 @@ def create_input_text_with_feedback(
         return input_text
     
     def format_input_text(x, prev_model_paraphrase_df):
-        # print(x)
         question = x["orig_question"]
         answer = x["answer"][0]
         if prev_model_paraphrase_df is not None:
             sample_id = x["sample_id"]
             prev_para_input = prev_model_paraphrase_df[prev_model_paraphrase_df["sample_id"] == sample_id]["input"].values[0]
-            print(len(prev_para_input))
             formatted_qa = format_question_and_answer(question, answer)
             formatted_input = prev_para_input + formatted_qa
         else:

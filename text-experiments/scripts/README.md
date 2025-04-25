@@ -22,8 +22,10 @@ bash scripts/eval.sh \
 
 # Generate Paraphrase Data with Feedback+History
 sbatch scripts/create_feedback_data.sh \
-    5 \
+    10 \
     gsm_plus \
     Qwen/Qwen2.5-3B-Instruct \
-    http://babel-12-13:8084/v1 \
+    http://babel-2-13:8084/v1 \
+    Qwen/Qwen2.5-7B-Instruct \
+    http://babel-8-13:8083/v1 \
     output/feedback-with-history 
