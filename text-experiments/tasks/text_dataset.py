@@ -224,11 +224,11 @@ def spread(dataset):
             all_sample_id.extend([sample_id] * len(answer))
             all_sentence.extend(answer)
             all_ground_truth.extend([str(ground_truth)] * len(answer))
-            all_original_string.extend([original_string[0]["full_input"][-1]["content"]] * len(answer))
+            # all_original_string.extend([original_string[0]["full_input"][-1]["content"]] * len(answer))
 
         return {
             "idx": all_idx,
-            "original_string": all_original_string,
+            "ori_sample_id": all_sample_id,
             "input": all_sentence,
             "output": all_ground_truth,
             }
@@ -247,4 +247,4 @@ class ScoreParaphraseTask(YevalTask):
     input_text=lambda x: x["input"]
     output_text=lambda x: x["output"]
     evaluation={"accuracy": math_eval}
-    aux_keys=["original_string"]
+    aux_keys=["ori_sample_id"]
